@@ -19,9 +19,15 @@ def play_hangman():
     available_letters = list(strng.ascii_uppercase)
     used_letters = []
 
+    #user input, and validation 
     selected_letter = input("Guess a letter: ").upper()
     if selected_letter not in used_letters:
-            used_letters.append(selected_letter)
-            if selected_letter in word_letters:
-                available_letters.remove(selected_letter)
+        used_letters.append(selected_letter)
+        if selected_letter in word_letters:
+            available_letters.remove(selected_letter)
+            print("Well done, that is correct!")
+    elif selected_letter in used_letters:
+        print("Oops... you have already selected this letter, try typing a different letter!")
+    else:
+        print("Invalid, character. Please try typing a letter!")
 
