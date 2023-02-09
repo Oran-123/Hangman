@@ -14,6 +14,7 @@ def get_random_word(words):
 
 def play_hangman():
 
+    #defined game varriables 
     word = get_random_word(random_words)
     word_letters = list(word)
     available_letters = list(string.ascii_uppercase)
@@ -31,4 +32,3 @@ def play_hangman():
     else:
         print("Invalid, character. Please try typing a letter!")
 
-play_hangman()
