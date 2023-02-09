@@ -16,7 +16,7 @@ def play_hangman():
 
     word = get_random_word(random_words)
     word_letters = list(word)
-    available_letters = list(strng.ascii_uppercase)
+    available_letters = list(string.ascii_uppercase)
     used_letters = []
 
     #user input, and validation 
@@ -31,3 +31,4 @@ def play_hangman():
     else:
         print("Invalid, character. Please try typing a letter!")
 
+play_hangman()
