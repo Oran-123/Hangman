@@ -22,5 +22,6 @@ def play_hangman():
     selected_letter = input("Guess a letter: ").upper()
     if selected_letter not in used_letters:
             used_letters.append(selected_letter)
-                
+            if selected_letter in word_letters:
+                available_letters.remove(selected_letter)
 
