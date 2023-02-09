@@ -15,16 +15,17 @@ def get_random_word(words):
 def play_hangman():
 
     #defined game varriables 
-    word = get_random_word(random_words)
-    word_letters = list(word)
+    answer = get_random_word(random_words)
+    answer_letters = list(word)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
 
     #user input, and validation 
+    while len()
     selected_letter = input("Guess a letter: ").upper()
     if selected_letter not in used_letters:
         used_letters.append(selected_letter)
-        if selected_letter in word_letters:
+        if selected_letter in answer_letters:
             available_letters.remove(selected_letter)
             print("Well done, that is correct!")
     elif selected_letter in used_letters:
