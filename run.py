@@ -1,6 +1,7 @@
 import random
 import string
 from random_words import random_words
+from hangman_art import HANGMAN_STAGES
 
 def get_random_word(words):
     """ 
@@ -22,10 +23,16 @@ def play_hangman():
 
     # user lives 
     lives = 7 
+    attempts = 0 
+    
+
+    # prin
 
     # let user select letters until word is guessed correctly 
     while len(answer_letters) > 0 and lives > 0: 
 
+        #display art 
+        print(HANGMAN_STAGES[attempts])
         #display current lives 
         print(lives)
 
@@ -50,7 +57,7 @@ def play_hangman():
             elif selected_letter not in answer_letters:
                 print("Oh no, that is incorrect!")
                 lives -= 1
-         
+                attempts += 1         
        
 
 play_hangman()
