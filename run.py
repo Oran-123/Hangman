@@ -17,4 +17,5 @@ def play_hangman():
         word_letters = list(word)
         available_letters = list(strng.ascii_uppercase)
 
+selected_letter = input("Guess a letter: ").upper()
 
