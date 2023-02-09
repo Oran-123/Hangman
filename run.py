@@ -20,6 +20,7 @@ def play_hangman():
     available_letters = list(string.ascii_uppercase)
     used_letters = []
 
+    # let user select letters until word is guessed correctly 
     while len(answer_letters) > 0: 
 
         #display the letters the user selected 
