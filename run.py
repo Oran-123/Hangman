@@ -20,8 +20,16 @@ def play_hangman():
     available_letters = list(string.ascii_uppercase)
     used_letters = []
 
-    #user input, and validation 
     while len(answer_letters) > 0: 
+
+        #display the letters the user selected 
+        print(f'Used Letters: {used_letters}')
+
+        #display the hidden word
+        hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
+        print("Current Word:" ," ".join(hidden_answer_letters) )
+
+        #user input, and validation 
         selected_letter = input("Guess a letter: ").upper()
         if selected_letter in used_letters:
             print("Oops... you have already selected this letter, try typing a different letter!")
