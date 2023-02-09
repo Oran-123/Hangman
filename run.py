@@ -23,16 +23,18 @@ def play_hangman():
     #user input, and validation 
     while len(answer_letters) > 0: 
         selected_letter = input("Guess a letter: ").upper()
-        if selected_letter not in used_letters:
+        if selected_letter in used_letters:
+            print("Oops... you have already selected this letter, try typing a different letter!")
+        elif selected_letter not in available_letters:
+            print("Invalid, character. Please try typing a letter!")
+        elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
             if selected_letter in answer_letters:
                 available_letters.remove(selected_letter)
                 print("Well done, that is correct!")
-            if selected_letter not in answer_letters:
+            elif selected_letter not in answer_letters:
                 print("Oh no, that is incorrect!")
-        elif selected_letter in used_letters:
-            print("Oops... you have already selected this letter, try typing a different letter!")
-        else:
-            print("Invalid, character. Please try typing a letter!")
+         
+       
 
 play_hangman()
