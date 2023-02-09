@@ -11,4 +11,8 @@ def get_random_word(words):
         random_word = random.choice(words)
     return random_word
 
-get_random_word(random_words)
+def play_hangman():
+        word = get_random_word(random_words)
+        word_letters = list(word)
+        
+
