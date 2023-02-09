@@ -13,9 +13,14 @@ def get_random_word(words):
     return random_word
 
 def play_hangman():
-        word = get_random_word(random_words)
-        word_letters = list(word)
-        available_letters = list(strng.ascii_uppercase)
 
-selected_letter = input("Guess a letter: ").upper()
+    word = get_random_word(random_words)
+    word_letters = list(word)
+    available_letters = list(strng.ascii_uppercase)
+    used_letters = []
+
+    selected_letter = input("Guess a letter: ").upper()
+    if selected_letter not in used_letters:
+            used_letters.append(selected_letter)
+                
 
