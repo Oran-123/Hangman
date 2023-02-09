@@ -22,10 +22,13 @@ def play_hangman():
 
     # user lives 
     lives = 7 
-    
-    # let user select letters until word is guessed correctly 
-    while len(answer_letters) > 0: 
 
+    # let user select letters until word is guessed correctly 
+    while len(answer_letters) > 0 or lives > 0: 
+
+        #display current lives 
+        print(lives)
+        
         #display the letters the user selected 
         print(f'Used Letters: {used_letters}')
 
