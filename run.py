@@ -20,6 +20,9 @@ def play_hangman():
     available_letters = list(string.ascii_uppercase)
     used_letters = []
 
+    # user lives 
+    lives = 7 
+    
     # let user select letters until word is guessed correctly 
     while len(answer_letters) > 0: 
 
@@ -43,6 +46,7 @@ def play_hangman():
                 print("Well done, that is correct!")
             elif selected_letter not in answer_letters:
                 print("Oh no, that is incorrect!")
+                lives -= 1
          
        
 
