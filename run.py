@@ -1,4 +1,5 @@
 import random
+import string
 from random_words import random_words
 
 def get_random_word(words):
@@ -14,5 +15,5 @@ def get_random_word(words):
 def play_hangman():
         word = get_random_word(random_words)
         word_letters = list(word)
-        
+
 
