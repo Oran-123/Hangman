@@ -10,7 +10,7 @@ def get_random_word(words):
     random_word = random.choice(words)
     while "-" in random_word or " " in random_word:
         random_word = random.choice(words)
-    return random_word
+    return random_word.upper()
 
 def play_hangman():
 
@@ -28,6 +28,8 @@ def play_hangman():
             if selected_letter in answer_letters:
                 available_letters.remove(selected_letter)
                 print("Well done, that is correct!")
+            if selected_letter not in answer_letters
+                print("Oh no, that is incorrect!")
         elif selected_letter in used_letters:
             print("Oops... you have already selected this letter, try typing a different letter!")
         else:
