@@ -15,5 +15,6 @@ def get_random_word(words):
 def play_hangman():
         word = get_random_word(random_words)
         word_letters = list(word)
+        available_letters = list(strng.ascii_uppercase)
 
 
