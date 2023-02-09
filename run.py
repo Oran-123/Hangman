@@ -1,3 +1,3 @@
 from hangman_art import HANGMAN_STAGES
+import Random 
 
-print (HANGMAN_STAGES[0])
