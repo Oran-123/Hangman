@@ -20,6 +20,7 @@ def play_hangman():
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
+    used_words = []
 
     # user lives 
     lives = 7 
@@ -38,6 +39,9 @@ def play_hangman():
 
         #display the letters the user selected 
         print(f'Used Letters: {used_letters}')
+
+        #dispaly guessed words
+        print(f'Used Words: {used_words}')
 
         #display the hidden word
         hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
@@ -63,9 +67,9 @@ def play_hangman():
             elif selected_letter not in used_letters:
                 used_letters.append(selected_letter)
                 if selected_letter == answer:
-                    available_letters.remove(list(selected_letter))
                     print("Well done, that is correct!")
                 elif selected_letter != answer:
+                    selected_letter.append(used_words)
                     print("Oh no, that is incorrect!")
                     lives -= 1
                     attempts += 1  
