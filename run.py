@@ -132,9 +132,42 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
-        if lives = 0 or answer not in available_letters:
-            final_result()
+        if lives == 0:
+            print(HANGMAN_STAGES[attempts])
+            final_result(lives,username)
+        elif answer not in available_letters:
+            final_result(lives,username)
 
-def final_result():
+def final_result(lives,username):
+    if lives > 0:
+        print(f'Congratulations {username} your survived this time, but you might not the text time!')
+        
+    elif lives == 0:
+        print(f'Unfortunatley {username} you have met your faith, better luck next time!')
+    play_again()
 
-playgame_or_leaderboard()
+def play_again():
+    print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
+    play_again_valid_response = False
+    while play_again_valid_response == False:
+        selected_option = input("Enter Your Choice:").upper()
+        if selected_option == "A":
+            play_hangman()
+            play_again_valid_response == True
+        elif selected_option == "B":
+            show_leaderboard()
+            play_again_valid_response == True
+        elif selected_option == "C":
+            exit()
+            play_again_valid_response == True
+        else:
+            print("Invalid option selected, please try again and select A, B or C")
+            play_again_valid_response == False
+
+
+# def upate_leaderboard():
+    
+def show_leaderboard():
+    print("display leaderboard")
+
+play_again()
