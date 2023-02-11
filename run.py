@@ -6,16 +6,15 @@ from hangman_art import HANGMAN_STAGES
 from time import sleep
 
 
-RULES = 
-"""
+
+RULES = """
 The rules are simple:\n
 \n
-1. Guess the word by typing a letter 
+1. Guess the word by typing a letter\n
 2. If you choose a letter that is not in the word you loose a life\n
 3. If you guess the word before all your lives are up you win\n 
 4. If you run out of lives before you guess the word you die\n 
-\n 
-""""
+"""
 
 def welcome_message():
     print("hangman art")
@@ -42,9 +41,14 @@ def playgame_or_leaderboard():
 
 def display_rules(rules):
     print(rules)
-    start_game = input("Press any button to start the game: ")
-    if len(start_game) > 0:
-        play_hangman()
+    valid_response = False
+    while valid_response == False:
+        start_game = input("Press any button to start the game: ")
+        if len(start_game) > 0:
+            play_hangman()
+            valid_response = True
+        else:
+            valid_response = False
 
 def get_random_word(words):
     """ 
