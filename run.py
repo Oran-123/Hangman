@@ -173,3 +173,5 @@ def show_leaderboard():
 
 def main ():
     welcome_message
+
+main()
