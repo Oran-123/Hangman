@@ -9,7 +9,18 @@ UNSCATHED_SCORE = 100
 FULL_WORD_SCORE = 50 
 HALF_OF_LIVES_REMAINING_BONUS = 25 
 SCORE_PER_LIFE = 10  
-SCORE_PER_WORD = 5 
+SCORE_PER_LETTER = 5 
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('CI_love_sandwiches')
 
 
 RULES = """
@@ -138,18 +149,18 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
-        final_score = (lives * SCORE_PER_LIFE) + 
+        score = (lives * SCORE_PER_LIFE) 
         if lives == 0:
             print(HANGMAN_STAGES[attempts])
-            final_result_lost(username,final_score)
+            final_result_lost(username,score)
         elif answer not in available_letters:
-            final_result_won(username,lives, attempts)
+            final_result_won(username,lives, attempts,len(answer_letters))
         
-def final_result_lost(username, final_score):
-    print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {final_score} points\n')
+def final_result_lost(username, score):
+    print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {score} points\n')
     play_again()
     
-def final_result_won(lives,username,final_score):
+def final_result_won(lives,username,score,word_length):
     if lives == 7:
         final_score = final_score + UNSCATHED_SCORE
         print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points\n') 
@@ -158,6 +169,7 @@ def final_result_won(lives,username,final_score):
         print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points\n') 
     elif lives < 4:
         print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points\n') 
+    
     play_again()
 
     
