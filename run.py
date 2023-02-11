@@ -139,13 +139,15 @@ def play_hangman():
         elif answer not in available_letters:
             final_result(lives,username)
 
-def final_result(lives,username):
-    if lives > 0:
-        print(f'Congratulations {username} your survived this time, but you might not the text time!')
-        
-    elif lives == 0:
-        print(f'Unfortunatley {username} you have met your faith, better luck next time!')
+def final_result_lost():
+    print(f'Unfortunatley {username} you have met your faith, better luck next time!')
     play_again()
+
+def final_result_won(lives,username):
+    print(f'Congratulations {username} your survived this time, but you might not the text time!')  
+    play_again()
+
+        
 
 def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
