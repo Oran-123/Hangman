@@ -2,6 +2,7 @@ import random
 import string
 import sys
 import gspread
+import datetime 
 
 from random_words import random_words
 from hangman_art import HANGMAN_STAGES
@@ -27,6 +28,8 @@ SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 
 leaderboard =  SHEET.worksheet('leaderboard')
 leaderboard_data = leaderboard.get_all_values()
+
+date = datetime.datetime.now()
 
 RULES = """
 The rules are simple:\n
@@ -197,7 +200,11 @@ def play_again():
             play_again_valid_response == False
 
 
-# def upate_leaderboard():
+def upate_leaderboard(username,score,date):
+    data 
+    print('Updating leaderborad....')
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
     
 def show_leaderboard():
     print("display leaderboard")
