@@ -142,22 +142,21 @@ def play_hangman():
             final_result_lost(username)
         elif answer not in available_letters:
             final_result_won(username,lives, attempts)
+        final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
 
-def final_result_lost(username):
-    print(f'Unfortunatley {username} you have met your faith, better luck next time!')
+def final_result_lost(username, final_score):
+    print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {final_score} points\n')
     play_again()
     
-def final_result_won(lives,username):
-    final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
-    if lives == 7 
+def final_result_won(lives,username,final_score):
+    if lives == 7:
         final_score = final_score + UNSCATHED_SCORE
-        print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points') 
-    elif 7 < lives < 3 
+        print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points\n') 
+    elif 7 < lives < 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points') 
-    elif lives < 4
-        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points') 
-
+        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points\n') 
+    elif lives < 4:
+        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points\n') 
     play_again()
 
     
