@@ -5,6 +5,18 @@ from random_words import random_words
 from hangman_art import HANGMAN_STAGES
 from time import sleep
 
+
+RULES = 
+"""
+The rules are simple:\n
+\n
+1. Guess the word by typing a letter 
+2. If you choose a letter that is not in the word you loose a life\n
+3. If you guess the word before all your lives are up you win\n 
+4. If you run out of lives before you guess the word you die\n 
+\n 
+""""
+
 def welcome_message():
     print("hangman art")
     welcome_text = "This is just a test\n"
