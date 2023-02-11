@@ -200,11 +200,10 @@ def play_again():
             play_again_valid_response == False
 
 
-def upate_leaderboard(username,score,date):
-    data 
+def upate_leaderboard(username,score):
+    data = [username, score, date]
     print('Updating leaderborad....')
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data)
+    leaderboard.append_row(data)
     
 def show_leaderboard():
     print("display leaderboard")
