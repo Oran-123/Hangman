@@ -7,11 +7,11 @@ from time import sleep
 
 def welcome_message():
     print("hangman art")
-    welcome_text = "This is just a test"
+    welcome_text = "This is just a test\n"
     for letters in welcome_text:
-    sleep(0.5)
-    sys.stdout.write(char)
-    sys.stdout.flush()
+        sleep(0.2)
+        sys.stdout.write(letters)
+        sys.stdout.flush()
 
 
 def get_random_word(words):
@@ -89,4 +89,4 @@ def play_hangman():
               
        
 
-play_hangman()
+welcome_message()
