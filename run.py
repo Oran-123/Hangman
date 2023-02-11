@@ -135,16 +135,22 @@ def play_hangman():
                 print("Invalid, character. Please try typing a letter!")     
         if lives == 0:
             print(HANGMAN_STAGES[attempts])
-            final_result(lives,username)
+            final_result_lost(username)
         elif answer not in available_letters:
-            final_result(lives,username)
+            final_result_won(username,lives, attempts)
 
-def final_result_lost():
+def final_result_lost(username):
     print(f'Unfortunatley {username} you have met your faith, better luck next time!')
     play_again()
 
 def final_result_won(lives,username):
-    print(f'Congratulations {username} your survived this time, but you might not the text time!')  
+    if lives == 7 
+        print(f'Wow.. {username} you survived without a scratch!') 
+    elif 7 < lives < 3 
+        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time!') 
+    elif lives < 4
+        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time!') 
+
     play_again()
 
         
