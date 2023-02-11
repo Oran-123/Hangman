@@ -31,7 +31,7 @@ def playgame_or_leaderboard():
     while valid_response == False:
         player_response = input("Enter A or B to continue: ").upper()
         if player_response == "A":
-            play_hangman()
+            display_rules(RULES)
             valid_response = True
         elif player_response == "B":
             print("display leaderboard")
@@ -39,6 +39,12 @@ def playgame_or_leaderboard():
         elif player_response != "A" or player_response != "B":
             print ("Invalid character entered, please enter either A or B")
             valid_response = False 
+
+def display_rules(rules):
+    print(rules)
+    start_game = input("Press any button to start the game: ")
+    if len(start_game) > 0:
+        play_hangman()
 
 def get_random_word(words):
     """ 
