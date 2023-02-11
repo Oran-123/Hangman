@@ -1,7 +1,11 @@
 import random
 import string
+import sys
 from random_words import random_words
 from hangman_art import HANGMAN_STAGES
+from time import sleep
+
+print()
 
 def get_random_word(words):
     """ 
@@ -69,7 +73,7 @@ def play_hangman():
                 if selected_letter == answer:
                     print("Well done, that is correct!")
                 elif selected_letter != answer:
-                    selected_letter.append(used_words)
+                    used_words.append(selected_letter)
                     print("Oh no, that is incorrect!")
                     lives -= 1
                     attempts += 1  
