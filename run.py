@@ -13,6 +13,20 @@ def welcome_message():
         sys.stdout.write(letters)
         sys.stdout.flush()
 
+def playgame_or_leaderboard():
+    print("A - PLAY GAME \nB - LEADERBOARD")
+    valid_response = False
+    while valid_response == False:
+        player_response = input("Enter A or B to continue: ").upper()
+        if player_response == "A":
+            play_hangman()
+            valid_response = True
+        elif player_response == "B":
+            print("display leaderboard")
+            valid_response = True
+        elif player_response != "A" or player_response != "B":
+            print ("Invalid character entered, please enter either A or B")
+            valid_response = False 
 
 def get_random_word(words):
     """ 
@@ -37,9 +51,6 @@ def play_hangman():
     lives = 7 
     attempts = 0 
     
-
-    # prin
-
     # let user select letters until word is guessed correctly 
     while len(answer_letters) > 0 and lives > 0: 
 
@@ -85,8 +96,6 @@ def play_hangman():
                     lives -= 1
                     attempts += 1  
         else: 
-            print("Invalid, character. Please try typing a letter!")
-              
+            print("Invalid, character. Please try typing a letter!")     
        
-
-welcome_message()
+playgame_or_leaderboard()
