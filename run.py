@@ -26,18 +26,18 @@ def welcome_message():
 
 def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
-    valid_response = False
-    while valid_response == False:
+    a_or_b_valid_response = False
+    while a_or_b_valid_response == False:
         player_response = input("Enter A or B to continue: ").upper()
         if player_response == "A":
             display_rules(RULES)
-            valid_response = True
+            a_or_b_valid_response = True
         elif player_response == "B":
             print("display leaderboard")
-            valid_response = True
+            a_or_b_valid_response = True
         elif player_response != "A" or player_response != "B":
             print ("Invalid character entered, please enter either A or B")
-            valid_response = False 
+            a_or_b_valid_response = False 
 
 def display_rules(rules):
     print(rules)
