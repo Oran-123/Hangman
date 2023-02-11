@@ -1,9 +1,12 @@
 import random
 import string
 import sys
+import gspread
+
 from random_words import random_words
 from hangman_art import HANGMAN_STAGES
 from time import sleep
+from google.oauth2.service_account import Credentials
 
 UNSCATHED_SCORE = 100 
 FULL_WORD_SCORE = 50 
