@@ -5,7 +5,14 @@ from random_words import random_words
 from hangman_art import HANGMAN_STAGES
 from time import sleep
 
-print()
+def welcome_message():
+    print("hangman art")
+    welcome_text = "This is just a test"
+    for letters in welcome_text:
+    sleep(0.5)
+    sys.stdout.write(char)
+    sys.stdout.flush()
+
 
 def get_random_word(words):
     """ 
