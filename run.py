@@ -137,13 +137,13 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
+        final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
         if lives == 0:
             print(HANGMAN_STAGES[attempts])
-            final_result_lost(username)
+            final_result_lost(username,final_score)
         elif answer not in available_letters:
             final_result_won(username,lives, attempts)
-        final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
-
+        
 def final_result_lost(username, final_score):
     print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {final_score} points\n')
     play_again()
