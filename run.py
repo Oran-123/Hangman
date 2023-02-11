@@ -172,6 +172,6 @@ def show_leaderboard():
     print("display leaderboard")
 
 def main ():
-    welcome_message
+    welcome_message()
 
 main()
