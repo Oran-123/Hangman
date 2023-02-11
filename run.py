@@ -23,6 +23,7 @@ def welcome_message():
         sleep(0.2)
         sys.stdout.write(letters)
         sys.stdout.flush()
+    playgame_or_leaderboard()
 
 def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
@@ -170,4 +171,5 @@ def play_again():
 def show_leaderboard():
     print("display leaderboard")
 
-play_again()
+def main ():
+    welcome_message
