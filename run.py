@@ -161,8 +161,10 @@ def play_hangman():
         if lives == 0:
             print(HANGMAN_STAGES[attempts])
             final_result_lost(username,score)
-        elif answer not in available_letters:
+        
+        if "_" not in hidden_answer_letters:
             final_result_won(username,lives, attempts,len(answer_letters))
+        upate_leaderboard()
         
 def final_result_lost(username, score):
     print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {score} points\n')
