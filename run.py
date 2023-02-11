@@ -145,14 +145,16 @@ def play_hangman():
 def final_result_lost(username):
     print(f'Unfortunatley {username} you have met your faith, better luck next time!')
     play_again()
-
+    
 def final_result_won(lives,username):
+    final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
     if lives == 7 
-        print(f'Wow.. {username} you survived without a scratch!') 
+        final_score = final_score + UNSCATHED_SCORE
+        print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points') 
     elif 7 < lives < 3 
-        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time!') 
+        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points') 
     elif lives < 4
-        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time!') 
+        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points') 
 
     play_again()
 
