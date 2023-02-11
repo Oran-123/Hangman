@@ -118,12 +118,13 @@ def play_hangman():
                         lives -= 1
                         attempts += 1  
             elif len(selected_letter) == len(answer) and selected_letter.isalpha():
-                if selected_letter in used_letters:
+                if selected_letter in used_words:
                     print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
-                elif selected_letter not in used_letters:
-                    used_letters.append(selected_letter)
+                elif selected_letter not in used_words:
+                    used_words.append(selected_letter)
                     if selected_letter == answer:
                         print("Well done, that is correct!")
+                        final_result()
                     elif selected_letter != answer:
                         used_words.append(selected_letter)
                         print("Oh no, that is incorrect!")
@@ -131,6 +132,9 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
+        if lives = 0 or answer not in available_letters: 
+            final_result()
 
-
+def final_result():
+    
 playgame_or_leaderboard()
