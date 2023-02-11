@@ -137,6 +137,7 @@ def play_hangman():
                     used_letters.append(selected_letter)
                     if selected_letter in answer_letters:
                         available_letters.remove(selected_letter)
+                        answer_letters.remove(selected_letter)
                         print("Well done, that is correct!")
                     elif selected_letter not in answer_letters:
                         print("Oh no, that is incorrect!")
@@ -158,13 +159,12 @@ def play_hangman():
             else: 
                 print("Invalid, character. Please try typing a letter!")     
         score = (lives * SCORE_PER_LIFE) 
-        if lives == 0:
-            print(HANGMAN_STAGES[attempts])
-            final_result_lost(username,score)
-        
-        if "_" not in hidden_answer_letters:
+        if len(answer_letters) == 0:
             final_result_won(username,lives, attempts,len(answer_letters))
-        upate_leaderboard()
+            upate_leaderboard()
+        elif lives == 0:
+            print(HANGMAN_STAGES[attempts])
+            final_result_lost(username,score)            
         
 def final_result_lost(username, score):
     print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {score} points\n')
