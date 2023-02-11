@@ -9,6 +9,7 @@ UNSCATHED_SCORE = 100
 FULL_WORD_SCORE = 50 
 HALF_OF_LIVES_REMAINING_BONUS = 25 
 SCORE_PER_LIFE = 10  
+SCORE_PER_WORD = 5 
 
 
 RULES = """
@@ -137,7 +138,7 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
-        final_score = (lives * SCORE_PER_LIFE) + FULL_WORD_SCORE
+        final_score = (lives * SCORE_PER_LIFE) + 
         if lives == 0:
             print(HANGMAN_STAGES[attempts])
             final_result_lost(username,final_score)
