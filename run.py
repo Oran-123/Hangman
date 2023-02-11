@@ -41,14 +41,14 @@ def playgame_or_leaderboard():
 
 def display_rules(rules):
     print(rules)
-    valid_response = False
-    while valid_response == False:
+    start_game_valid_response = False
+    while start_game_valid_response == False:
         start_game = input("Press any button to start the game: ")
         if len(start_game) > 0:
             play_hangman()
-            valid_response = True
+            start_game_valid_response = True
         else:
-            valid_response = False
+            start_game_valid_response = False
 
 def get_random_word(words):
     """ 
@@ -132,9 +132,9 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")     
-        if lives = 0 or answer not in available_letters: 
+        if lives = 0 or answer not in available_letters:
             final_result()
 
 def final_result():
-    
+
 playgame_or_leaderboard()
