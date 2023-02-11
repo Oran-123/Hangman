@@ -25,6 +25,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 
+leaderboard =  SHEET.worksheet('leaderboard')
+leaderboard_data = leaderboard.get_all_values()
 
 RULES = """
 The rules are simple:\n
