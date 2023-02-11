@@ -5,6 +5,9 @@ from random_words import random_words
 from hangman_art import HANGMAN_STAGES
 from time import sleep
 
+UNSCATHED_SCORE = 100 
+FULL_WORD_SCORE = 50 
+SCORE_PER_LIFE = 10  
 
 
 RULES = """
@@ -153,8 +156,7 @@ def final_result_won(lives,username):
 
     play_again()
 
-        
-
+    
 def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
