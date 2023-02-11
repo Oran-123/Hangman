@@ -28,7 +28,7 @@ def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
     a_or_b_valid_response = False
     while a_or_b_valid_response == False:
-        player_response = input("Enter A or B to continue: ").upper()
+        player_response = input("Enter A or B to continue:\n").upper()
         if player_response == "A":
             display_rules(RULES)
             a_or_b_valid_response = True
@@ -43,7 +43,7 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     while start_game_valid_response == False:
-        start_game = input("Press any button to start the game: ")
+        start_game = input("Press any button to start the game:\n")
         if len(start_game) > 0:
             play_hangman()
             start_game_valid_response = True
@@ -77,7 +77,7 @@ def play_hangman():
     username_valid_response = False
 
     while username_valid_response == False:
-        username = input("Enter your name:")
+        username = input("Enter your name:\n")
         if len(username) > 0:
             username_valid_response = True
         else:
@@ -104,7 +104,7 @@ def play_hangman():
             print("Current Word:" ," ".join(hidden_answer_letters) )
 
             #user input, and validation 
-            selected_letter = input("Guess a letter: ").upper()
+            selected_letter = input("Guess a letter:\n").upper()
             if len(selected_letter) == 1 and selected_letter.isalpha():
                 if selected_letter in used_letters:
                     print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
@@ -150,7 +150,7 @@ def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
-        selected_option = input("Enter Your Choice:").upper()
+        selected_option = input("Enter Your Choice:\n").upper()
         if selected_option == "A":
             play_hangman()
             play_again_valid_response == True
