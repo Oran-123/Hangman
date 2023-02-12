@@ -4,6 +4,7 @@ import sys
 import gspread
 import datetime 
 
+from datetime import datetime
 from random_words import random_words
 from hangman_art import HANGMAN_STAGES
 from time import sleep
@@ -29,7 +30,7 @@ SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 leaderboard =  SHEET.worksheet('leaderboard')
 leaderboard_data = leaderboard.get_all_values()
 
-date = date.today()
+date = datetime.today().strftime('%Y-%m-%d')
 
 RULES = """
 The rules are simple:\n
