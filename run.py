@@ -3,6 +3,7 @@ import string
 import sys
 import gspread
 import datetime 
+import leaderboard 
 
 from logo import LOGO
 from welcome_text import WELCOME
@@ -212,8 +213,12 @@ def show_leaderboard():
     for r in range(2,12):
         row = leaderboard.row_values(r)
         results.append(row)
-    print(results)
-    play_again()
+    return results
+
+    for result in resutls:
+        print ("USERNAME:")
+
+
 
 
 def main ():
