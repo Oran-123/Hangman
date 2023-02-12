@@ -5,7 +5,7 @@ import gspread
 import datetime 
 
 from logo import LOGO
-from welcome-text import WELCOME
+from welcome_text import WELCOME
 from rules import RULES
 from datetime import datetime
 from random_words import random_words
@@ -39,7 +39,7 @@ date = datetime.today().strftime('%Y-%m-%d')
 def welcome_message():
     print(LOGO)
     for letters in WELCOME:
-        sleep(0.2)
+        sleep(0.1)
         sys.stdout.write(letters)
         sys.stdout.flush()
     playgame_or_leaderboard()
