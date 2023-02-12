@@ -29,7 +29,7 @@ SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 leaderboard =  SHEET.worksheet('leaderboard')
 leaderboard_data = leaderboard.get_all_values()
 
-date = datetime.datetime.now()
+date = date.today()
 
 RULES = """
 The rules are simple:\n
