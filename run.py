@@ -164,19 +164,19 @@ def play_hangman():
             final_result_lost(username,score)            
         
 def final_result_lost(username, score):
-    print(f'Unfortunatley {username} you have met your faith, better luck next time!you finished with a score of {score} points\n')
+    print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
     play_again()
     
 def final_result_won(lives,username,score,word_length):
     final_score = score + FULL_WORD_SCORE
     if lives == 7:
         final_score = final_score + UNSCATHED_SCORE 
-        print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points\n') 
+        print(f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n') 
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points\n') 
+        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n') 
     elif lives < 4:
-        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points\n') 
+        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n') 
     
     upate_leaderboard(username, final_score)
     
