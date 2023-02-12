@@ -3,8 +3,8 @@ import string
 import sys
 import gspread
 import datetime 
-import leaderboard 
 
+from leaderboard import LEADERBOARD
 from logo import LOGO
 from welcome_text import WELCOME
 from rules import RULES
@@ -219,12 +219,10 @@ def show_leaderboard():
     #     print ("USERNAME:")
     
     results = leaderboard_data[1:]
-    for result in results:
-        result[1] = (result[1])
 
     sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
 
-    print(LEADERBOARD)
+    print(f'{LEADERBOARD}')
     if(len(sorted_results) < 15):
         count = len(sorted_results)
     else:
@@ -232,13 +230,16 @@ def show_leaderboard():
 
     for i in range(0, count):
         print(f"""
-        {i+1}\t{sorted_results[i][0]}\t{sorted_results[i][1]}\t{sorted_results[i][2]}\t{sorted_results[i][3]}""")
+        {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
         print("===============================================================================")
 
 
 
-def main ():
-    welcome_message()
+# def main ():
+#     welcome_message()
 
-main()
+# main()
 
+
+
+show_leaderboard()
