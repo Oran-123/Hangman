@@ -3,7 +3,7 @@ import string
 import sys
 import gspread
 import datetime 
-
+from rules import RULES
 from datetime import datetime
 from random_words import random_words
 from hangman_art import HANGMAN_STAGES
@@ -32,14 +32,6 @@ leaderboard_data = leaderboard.get_all_values()
 
 date = datetime.today().strftime('%Y-%m-%d')
 
-RULES = """
-The rules are simple:\n
-\n
-1. Guess the word by typing a letter\n
-2. If you choose a letter that is not in the word you loose a life\n
-3. If you guess the word before all your lives are up you win\n 
-4. If you run out of lives before you guess the word you die\n 
-"""
 
 def welcome_message():
     print("hangman art")
