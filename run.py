@@ -206,17 +206,12 @@ def upate_leaderboard(username,score):
     data = [username, score, str(date)]
     print('Updating leaderborad....')
     leaderboard.append_row(data)
+    print("\n")
+    print('Leaderboard succesfully updated\n')
     play_again()
     
 def show_leaderboard():
-    # results = []
-    # for r in range(2,12):
-    #     row = leaderboard.row_values(r)
-    #     results.append(row)
-    # return results
-
-    # for result in resutls:
-    #     print ("USERNAME:")
+    print ("Loading leaderboard...")
     
     results = leaderboard_data[1:]
 
@@ -224,22 +219,36 @@ def show_leaderboard():
 
     print(f'{LEADERBOARD}')
     if(len(sorted_results) < 15):
-        count = len(sorted_results)
+        count_of_results = len(sorted_results)
     else:
-        count = 15
+        count_of_results = 15
 
-    for i in range(0, count):
+    for i in range(0, count_of_results):
         print(f"""
         {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
         print("===============================================================================")
+    leaderboard_options()
+
+    
+def leaderboard_options():
+    print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
+    play_again_valid_response = False
+    while play_again_valid_response == False:
+        selected_option = input("Enter Your Choice:\n").upper()
+        if selected_option == "A":
+            play_hangman()
+            play_again_valid_response == True
+        elif selected_option == "C":
+            exit()
+            play_again_valid_response == True
+        else:
+            print("Invalid option selected, please try again and select A, B or C")
+            play_again_valid_response == False
+
+def main ():
+    welcome_message()
+
+main()
 
 
 
-# def main ():
-#     welcome_message()
-
-# main()
-
-
-
-show_leaderboard()
