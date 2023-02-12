@@ -32,7 +32,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 
 leaderboard =  SHEET.worksheet('leaderboard')
-leaderboard_data = leaderboard.get_all_values()
 
 date = datetime.today().strftime('%Y-%m-%d')
 
@@ -211,8 +210,10 @@ def upate_leaderboard(username,score):
     play_again()
     
 def show_leaderboard():
-    print ("Loading leaderboard...")
     
+    print("Loading leaderboard......")
+    sleep(2)
+    leaderboard_data = leaderboard.get_all_values()    
     results = leaderboard_data[1:]
 
     sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
@@ -227,6 +228,8 @@ def show_leaderboard():
         print(f"""
         {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
         print("===============================================================================")
+
+    print("Leaderboard loaded succesfully.")
     leaderboard_options()
 
 
@@ -245,10 +248,12 @@ def leaderboard_options():
             print("Invalid option selected, please try again and select A or B")
             play_again_valid_response == False
 
-def main ():
-    welcome_message()
+# def main ():
+#     welcome_message()
 
-main()
+# main()
+
+upate_leaderboard("Test_User", 100)
 
 
 
