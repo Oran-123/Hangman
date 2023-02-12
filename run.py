@@ -248,12 +248,11 @@ def leaderboard_options():
             print("Invalid option selected, please try again and select A or B")
             play_again_valid_response == False
 
-# def main ():
-#     welcome_message()
+def main ():
+    welcome_message()
 
-# main()
+main()
 
-upate_leaderboard("Test_User", 100)
 
 
 
