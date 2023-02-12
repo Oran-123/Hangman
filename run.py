@@ -3,6 +3,9 @@ import string
 import sys
 import gspread
 import datetime 
+
+from logo import LOGO
+from welcome-text import WELCOME
 from rules import RULES
 from datetime import datetime
 from random_words import random_words
@@ -34,9 +37,8 @@ date = datetime.today().strftime('%Y-%m-%d')
 
 
 def welcome_message():
-    print("hangman art")
-    welcome_text = "This is just a test\n"
-    for letters in welcome_text:
+    print(LOGO)
+    for letters in WELCOME:
         sleep(0.2)
         sys.stdout.write(letters)
         sys.stdout.flush()
