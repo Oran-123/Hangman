@@ -45,10 +45,12 @@ def welcome_message():
     playgame_or_leaderboard()
 
 def playgame_or_leaderboard():
+     print("\n-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
     print("A - PLAY GAME \nB - LEADERBOARD")
     a_or_b_valid_response = False
     while a_or_b_valid_response == False:
         player_response = input("Enter A or B to continue:\n").upper()
+        print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
         if player_response == "A":
             display_rules(RULES)
             a_or_b_valid_response = True
