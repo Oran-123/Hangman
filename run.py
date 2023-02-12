@@ -229,20 +229,20 @@ def show_leaderboard():
         print("===============================================================================")
     leaderboard_options()
 
-    
+
 def leaderboard_options():
-    print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
+    print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
         selected_option = input("Enter Your Choice:\n").upper()
         if selected_option == "A":
             play_hangman()
             play_again_valid_response == True
-        elif selected_option == "C":
+        elif selected_option == "B":
             exit()
             play_again_valid_response == True
         else:
-            print("Invalid option selected, please try again and select A, B or C")
+            print("Invalid option selected, please try again and select A or B")
             play_again_valid_response == False
 
 def main ():
