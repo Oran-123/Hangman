@@ -209,15 +209,31 @@ def upate_leaderboard(username,score):
     play_again()
     
 def show_leaderboard():
-    results = []
-    for r in range(2,12):
-        row = leaderboard.row_values(r)
-        results.append(row)
-    return results
+    # results = []
+    # for r in range(2,12):
+    #     row = leaderboard.row_values(r)
+    #     results.append(row)
+    # return results
 
-    for result in resutls:
-        print ("USERNAME:")
+    # for result in resutls:
+    #     print ("USERNAME:")
+    
+    results = leaderboard_data[1:]
+    for result in results:
+        result[1] = (result[1])
 
+    sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
+
+    print(LEADERBOARD)
+    if(len(sorted_results) < 15):
+        count = len(sorted_results)
+    else:
+        count = 15
+
+    for i in range(0, count):
+        print(f"""
+        {i+1}\t{sorted_results[i][0]}\t{sorted_results[i][1]}\t{sorted_results[i][2]}\t{sorted_results[i][3]}""")
+        print("===============================================================================")
 
 
 
