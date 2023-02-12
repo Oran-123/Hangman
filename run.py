@@ -109,7 +109,7 @@ def play_hangman():
     while username_valid_response == True:
         # let user select letters until word is guessed correctly 
         while len(answer_letters) > 0 and lives > 0: 
-            print("/n-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+            print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
             #display art 
             print(HANGMAN_STAGES[attempts])
             #display current lives 
@@ -124,7 +124,7 @@ def play_hangman():
             #display the hidden word
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
             print("Current Word:" ," ".join(hidden_answer_letters) )
-            print("/n-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+            print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
             #user input, and validation 
             selected_letter = input("Guess a letter:\n").upper()
             if len(selected_letter) == 1 and selected_letter.isalpha():
