@@ -88,7 +88,7 @@ def get_random_word(words):
 def play_hangman():
 
     #defined game varriables 
-    answer = get_random_word(random_words)
+    answer = get_random_word("T")
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
@@ -160,7 +160,7 @@ def play_hangman():
                 print("Invalid, character. Please try typing a letter!")     
         score = (lives * SCORE_PER_LIFE) 
         if len(answer_letters) == 0:
-            final_result_won(username,lives, attempts,len(answer_letters))
+            final_result_won(lives, username, score,len(answer_letters))
             upate_leaderboard()
         elif lives == 0:
             print(HANGMAN_STAGES[attempts])
@@ -172,15 +172,15 @@ def final_result_lost(username, score):
     
 def final_result_won(lives,username,score,word_length):
     if lives == 7:
-        final_score = final_score + UNSCATHED_SCORE
+        final_score = score + UNSCATHED_SCORE
         print(f'Wow.. {username} you survived without a scratch! you finished with a score of {final_score} points\n') 
-    elif 7 < lives < 3:
+    elif 7 < int(lives) < 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
         print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! you finished with a score of {final_score} points\n') 
     elif lives < 4:
         print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! you finished with a score of {final_score} points\n') 
+    upate_leaderboard(username,final_score)
     
-    play_again()
 
     
 def play_again():
@@ -203,14 +203,17 @@ def play_again():
 
 
 def upate_leaderboard(username,score):
-    data = [username, score, date]
+    data = [username, score, str(date)]
     print('Updating leaderborad....')
     leaderboard.append_row(data)
+    play_again()
     
 def show_leaderboard():
     print("display leaderboard")
 
-def main ():
-    welcome_message()
+# def main ():
+#     welcome_message()
 
-main()
+# main()
+
+play_hangman()
