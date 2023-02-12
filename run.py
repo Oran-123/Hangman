@@ -40,7 +40,7 @@ date = datetime.today().strftime('%Y-%m-%d')
 def welcome_message():
     print(LOGO)
     for letters in WELCOME:
-        sleep(0.1)
+        sleep(0.05)
         sys.stdout.write(letters)
         sys.stdout.flush()
     playgame_or_leaderboard()
