@@ -83,7 +83,7 @@ def get_random_word(words):
 def play_hangman():
 
     #defined game varriables 
-    answer = get_random_word("T")
+    answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
