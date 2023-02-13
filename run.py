@@ -97,6 +97,8 @@ def play_hangman():
     # user lives 
     lives = 7 
     attempts = 0 
+
+    correct_response = True 
     
     #ask for username 
     username_valid_response = False
@@ -138,6 +140,13 @@ def play_hangman():
             elif lives < 3   
                 print(Fore.RED + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL) 
+            print("\n")
+            if correct_response = True:
+                print(Fore.GREEN + "Well done, that is correct!")
+            elif correct_response = False:
+                print(Fore.RED + "Oh no, that is incorrect!")
+            else:
+                print()
             #user input, and validation 
             selected_letter = input("Guess a letter:\n").upper()
             if len(selected_letter) == 1 and selected_letter.isalpha():
@@ -148,9 +157,9 @@ def play_hangman():
                     if selected_letter in answer_letters:
                         available_letters.remove(selected_letter)
                         answer_letters.remove(selected_letter)
-                        print("Well done, that is correct!")
+                        correct_response = True
                     elif selected_letter not in answer_letters:
-                        print("Oh no, that is incorrect!")
+                        correct_response = False
                         lives -= 1
                         attempts += 1  
             elif len(selected_letter) == len(answer) and selected_letter.isalpha():
@@ -159,11 +168,11 @@ def play_hangman():
                 elif selected_letter not in used_words:
                     used_words.append(selected_letter)
                     if selected_letter == answer:
-                        print("Well done, that is correct!")
+                        correct_response = " "
                         final_result()
                     elif selected_letter != answer:
                         used_words.append(selected_letter)
-                        print("Oh no, that is incorrect!")
+                        correct_respons = False
                         lives -= 1
                         attempts += 1  
             else: 
@@ -171,9 +180,11 @@ def play_hangman():
         score = (lives * SCORE_PER_LIFE) 
         if len(answer_letters) == 0:
             final_result_won(lives, username, score,len(answer_letters))
+            correct_response = " "
             upate_leaderboard()
         elif lives == 0:
             print(HANGMAN_STAGES[attempts])
+            correct_response = " "
             final_result_lost(username,score)            
         
 def final_result_lost(username, score):
@@ -184,16 +195,17 @@ def final_result_won(lives,username,score,word_length):
     final_score = score + FULL_WORD_SCORE
     if lives == 7:
         final_score = final_score + UNSCATHED_SCORE 
-        print(f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n') 
+        print(Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n') 
+        print(Style.RESET_ALL)
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n') 
+        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n') 
+        print(Style.RESET_ALL)
     elif lives < 4:
-        print(f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n') 
-    
-    upate_leaderboard(username, final_score)
-    
+        print(Fore.GREEN + f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n') 
+        print(Style.RESET_ALL)
 
+    upate_leaderboard(username, final_score)
     
 def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
