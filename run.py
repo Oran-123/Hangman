@@ -116,8 +116,7 @@ def play_hangman():
             print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
             #display art 
             print(HANGMAN_STAGES[attempts])
-            #display current lives 
-            print(f'{username} you have {lives} remaining')
+            
 
             #display the letters the user selected 
             print(Fore.RED + f'Used Letters: {used_letters}')
@@ -129,6 +128,16 @@ def play_hangman():
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
             print("Current Word:" ," ".join(hidden_answer_letters) )
             print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+            #display current lives 
+            if lives > 5:
+                print(Fore.GREEN + f'{username} you have {lives} remaining')
+                print(Style.RESET_ALL)
+            elif 6 > lives > 3
+                print(Fore.YELLOW + f'{username} you have {lives} remaining')
+                print(Style.RESET_ALL)
+            elif lives < 3   
+                print(Fore.RED + f'{username} you have {lives} remaining')
+                print(Style.RESET_ALL) 
             #user input, and validation 
             selected_letter = input("Guess a letter:\n").upper()
             if len(selected_letter) == 1 and selected_letter.isalpha():
