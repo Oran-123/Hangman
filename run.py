@@ -134,10 +134,10 @@ def play_hangman():
             if lives > 5:
                 print(Fore.GREEN + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL)
-            elif 6 > lives > 3
+            elif 6 > lives > 3:
                 print(Fore.YELLOW + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL)
-            elif lives < 3   
+            elif lives < 3:
                 print(Fore.RED + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL) 
             print("\n")
