@@ -141,9 +141,9 @@ def play_hangman():
                 print(Fore.RED + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL) 
             print("\n")
-            if correct_response = True:
+            if correct_response == True:
                 print(Fore.GREEN + "Well done, that is correct!")
-            elif correct_response = False:
+            elif correct_response == False:
                 print(Fore.RED + "Oh no, that is incorrect!")
             else:
                 print()
