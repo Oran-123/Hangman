@@ -52,14 +52,16 @@ def playgame_or_leaderboard():
     print(LINES)
     print(Style.RESET_ALL)
     print("A - PLAY GAME \nB - LEADERBOARD")
+    print("\n")
     a_or_b_valid_response = False
     while a_or_b_valid_response == False:
-        player_response = input(Fore.YELLOW + "Enter A or B to continue:\n").upper()
+        player_response = input(Fore.CYAN + "Enter A or B to continue:\n").upper()
         print(Style.RESET_ALL)
         print(LINES)
         print(Style.RESET_ALL)
         if player_response == "A":
-            display_rules(RULES)
+            display_rules(Fore.GREEN + RULES)
+            print(Stlye.RESET_ALL)
             a_or_b_valid_response = True
         elif player_response == "B":
             print("display leaderboard")
@@ -72,7 +74,7 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     while start_game_valid_response == False:
-        start_game = input(Fore.YELLOW +"Press any button to start the game:\n")
+        start_game = input(Fore.CYAN +"Press any button to start the game:\n")
         print(Style.RESET_ALL)        
         if len(start_game) > 0:
             play_hangman()
@@ -109,7 +111,7 @@ def play_hangman():
     username_valid_response = False
 
     while username_valid_response == False:
-        username = input(Fore.YELLOW +"Enter your name:\n")
+        username = input(Fore.CYAN +"Enter your name:\n")
         print(Style.RESET_ALL)
         if len(username) > 0:
             username_valid_response = True
@@ -142,7 +144,7 @@ def play_hangman():
                 print(Fore.GREEN + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL)
             elif 6 > lives > 3:
-                print(Fore.YELLOW + f'{username} you have {lives} remaining')
+                print(Fore.CYAN + f'{username} you have {lives} remaining')
                 print(Style.RESET_ALL)
             elif lives < 3:
                 print(Fore.RED + f'{username} you have {lives} remaining')
@@ -224,7 +226,7 @@ def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
-        selected_option = input(Fore.YELLOW + "Enter Your Choice:\n").upper()
+        selected_option = input(Fore.CYAN + "Enter Your Choice:\n").upper()
         print(Style.RESET_ALL)
         if selected_option == "A":
             play_hangman()
@@ -268,7 +270,7 @@ def show_leaderboard():
     for i in range(0, count_of_results):
         print(f"""
         {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
-        print(Fore.CYAN + "===============================================================================")
+        print(Fore.YELLOW + "===============================================================================")
         print(Stlye.RESET_ALL)
     print(Fore.GREEN + "Leaderboard loaded succesfully.")
     print(Stlye.RESET_ALL)
@@ -279,7 +281,7 @@ def leaderboard_options():
     print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
-        selected_option = input(Fore.YELLOW + "Enter Your Choice:\n").upper()
+        selected_option = input(Fore.CYAN + "Enter Your Choice:\n").upper()
         print(Stle.RESET_ALL)
         if selected_option == "A":
             play_hangman()
