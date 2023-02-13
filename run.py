@@ -39,6 +39,7 @@ date = datetime.today().strftime('%Y-%m-%d')
 
 def welcome_message():
     print(Fore.GREEN + LOGO)
+    print(Style.RESET_ALL)
     for letters in WELCOME:
         sleep(0.05)
         sys.stdout.write(letters)
@@ -213,7 +214,8 @@ def play_again():
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
-        selected_option = input("Enter Your Choice:\n").upper()
+        selected_option = input(Fore.YELLOW + "Enter Your Choice:\n").upper()
+        print(Style.RESET_ALL)
         if selected_option == "A":
             play_hangman()
             play_again_valid_response == True
@@ -264,7 +266,8 @@ def leaderboard_options():
     print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
-        selected_option = input("Enter Your Choice:\n").upper()
+        selected_option = input(Fore.YELLOW + "Enter Your Choice:\n").upper()
+        print(Stle.RESET_ALL)
         if selected_option == "A":
             play_hangman()
             play_again_valid_response == True
