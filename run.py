@@ -3,8 +3,8 @@ import string
 import sys
 import gspread
 import datetime 
-import results 
 
+from results import * 
 from colorama import Fore, Back, Style
 from leaderboard import LEADERBOARD
 from logo import LOGO
