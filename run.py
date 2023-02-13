@@ -38,7 +38,7 @@ date = datetime.today().strftime('%Y-%m-%d')
 
 
 def welcome_message():
-    print(LOGO)
+    print(Fore.GREEN + LOGO)
     for letters in WELCOME:
         sleep(0.05)
         sys.stdout.write(letters)
@@ -98,7 +98,7 @@ def play_hangman():
     lives = 7 
     attempts = 0 
 
-    correct_response = True 
+    correct_response = " " 
     
     #ask for username 
     username_valid_response = False
@@ -143,8 +143,10 @@ def play_hangman():
             print("\n")
             if correct_response == True:
                 print(Fore.GREEN + "Well done, that is correct!")
+                print(Style.RESET_ALL)
             elif correct_response == False:
                 print(Fore.RED + "Oh no, that is incorrect!")
+                print(Style.RESET_ALL)
             else:
                 print()
             #user input, and validation 
