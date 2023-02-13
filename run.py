@@ -120,10 +120,10 @@ def play_hangman():
             print(f'{username} you have {lives} remaining')
 
             #display the letters the user selected 
-            print("Used Letters:" Fore.RED + used_letters)
+            print(Fore.RED + f'Used Letters: {used_letters}')
             print(Style.RESET_ALL)
             #dispaly guessed words
-            print("Used Words:" Fore.RED + used_words)
+            print(Fore.RED + f'Used Words: {used_words}')
             print(Style.RESET_ALL)  
             #display the hidden word
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
