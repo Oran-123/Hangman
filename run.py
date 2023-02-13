@@ -245,14 +245,16 @@ def upate_leaderboard(username,score):
     
 def show_leaderboard():
     
-    print("Loading leaderboard......")
+    print(Fore.GREEN + "Loading leaderboard......")
+    print(Stlye.RESET_ALL)
     sleep(2)
     leaderboard_data = leaderboard.get_all_values()    
     results = leaderboard_data[1:]
 
     sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
 
-    print(f'{LEADERBOARD}')
+    print(Fore.YELLOW + f'{LEADERBOARD}')
+    print(Stlye.RESET_ALL)
     if(len(sorted_results) < 15):
         count_of_results = len(sorted_results)
     else:
@@ -261,9 +263,10 @@ def show_leaderboard():
     for i in range(0, count_of_results):
         print(f"""
         {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
-        print("===============================================================================")
-
-    print("Leaderboard loaded succesfully.")
+        print(Fore.CYAN + "===============================================================================")
+        print(Stlye.RESET_ALL)
+    print(Fore.GREEN + "Leaderboard loaded succesfully.")
+    print(Stlye.RESET_ALL)
     leaderboard_options()
 
 
