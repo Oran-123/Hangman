@@ -3,6 +3,7 @@ import string
 import sys
 import gspread
 import datetime 
+import results 
 
 from colorama import Fore, Back, Style
 from leaderboard import LEADERBOARD
@@ -191,11 +192,15 @@ def play_hangman():
             final_result_lost(username,score)            
         
 def final_result_lost(username, score):
+    print(Fore.RED + LOSS)
+    print(Style.RESET_ALL)
     print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
     play_again()
     
 def final_result_won(lives,username,score,word_length):
     final_score = score + FULL_WORD_SCORE
+    print(Fore.GREEN + VICTORY)
+    print(Style.RESET_ALL)
     if lives == 7:
         final_score = final_score + UNSCATHED_SCORE 
         print(Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n') 
