@@ -61,7 +61,7 @@ def playgame_or_leaderboard():
         print(Style.RESET_ALL)
         if player_response == "A":
             display_rules(Fore.GREEN + RULES)
-            print(Stlye.RESET_ALL)
+            print(Style.RESET_ALL)
             a_or_b_valid_response = True
         elif player_response == "B":
             print("display leaderboard")
@@ -253,7 +253,7 @@ def upate_leaderboard(username,score):
 def show_leaderboard():
     
     print(Fore.GREEN + "Loading leaderboard......")
-    print(Stlye.RESET_ALL)
+    print(Style.RESET_ALL)
     sleep(2)
     leaderboard_data = leaderboard.get_all_values()    
     results = leaderboard_data[1:]
@@ -261,7 +261,7 @@ def show_leaderboard():
     sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
 
     print(Fore.YELLOW + f'{LEADERBOARD}')
-    print(Stlye.RESET_ALL)
+    print(Style.RESET_ALL)
     if(len(sorted_results) < 15):
         count_of_results = len(sorted_results)
     else:
@@ -271,9 +271,9 @@ def show_leaderboard():
         print(f"""
         {i+1}\t{sorted_results[i][0]}    \t{sorted_results[i][1]}\t{sorted_results[i][2]}""")
         print(Fore.YELLOW + "===============================================================================")
-        print(Stlye.RESET_ALL)
+        print(Style.RESET_ALL)
     print(Fore.GREEN + "Leaderboard loaded succesfully.")
-    print(Stlye.RESET_ALL)
+    print(Style.RESET_ALL)
     leaderboard_options()
 
 
@@ -282,7 +282,7 @@ def leaderboard_options():
     play_again_valid_response = False
     while play_again_valid_response == False:
         selected_option = input(Fore.CYAN + "Enter Your Choice:\n").upper()
-        print(Stle.RESET_ALL)
+        print(Style.RESET_ALL)
         if selected_option == "A":
             play_hangman()
             play_again_valid_response == True
