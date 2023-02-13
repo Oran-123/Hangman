@@ -16,6 +16,7 @@ from hangman_art import HANGMAN_STAGES
 from time import sleep
 from google.oauth2.service_account import Credentials
 
+LINES = Fore.GREEN + "-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------"
 UNSCATHED_SCORE = 100 
 FULL_WORD_SCORE = 50 
 HALF_OF_LIVES_REMAINING_BONUS = 25 
@@ -48,13 +49,15 @@ def welcome_message():
     playgame_or_leaderboard()
 
 def playgame_or_leaderboard():
-    print("\n-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+    print(LINES)
+    print(Style.RESET_ALL)
     print("A - PLAY GAME \nB - LEADERBOARD")
     a_or_b_valid_response = False
     while a_or_b_valid_response == False:
         player_response = input(Fore.YELLOW + "Enter A or B to continue:\n").upper()
         print(Style.RESET_ALL)
-        print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+        print(LINES)
+        print(Style.RESET_ALL)
         if player_response == "A":
             display_rules(RULES)
             a_or_b_valid_response = True
@@ -117,7 +120,8 @@ def play_hangman():
     while username_valid_response == True:
         # let user select letters until word is guessed correctly 
         while len(answer_letters) > 0 and lives > 0: 
-            print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+            print(LINES)
+            print(Style.RESET_ALL)
             #display art 
             print(HANGMAN_STAGES[attempts])
             
@@ -131,7 +135,8 @@ def play_hangman():
             #display the hidden word
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
             print("Current Word:" ," ".join(hidden_answer_letters) )
-            print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
+            print(LINES)
+            print(Style.RESET_ALL)
             #display current lives 
             if lives > 5:
                 print(Fore.GREEN + f'{username} you have {lives} remaining')
