@@ -4,6 +4,7 @@ import sys
 import gspread
 import datetime 
 
+from colorama import Fore, Back, Style
 from leaderboard import LEADERBOARD
 from logo import LOGO
 from welcome_text import WELCOME
@@ -49,7 +50,8 @@ def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
     a_or_b_valid_response = False
     while a_or_b_valid_response == False:
-        player_response = input("Enter A or B to continue:\n").upper()
+        player_response = input(Fore.YELLOW + "Enter A or B to continue:\n").upper()
+        print(Style.RESET_ALL)
         print("-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------")
         if player_response == "A":
             display_rules(RULES)
@@ -65,7 +67,8 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     while start_game_valid_response == False:
-        start_game = input("Press any button to start the game:\n")
+        start_game = input(Fore.YELLOW +"Press any button to start the game:\n")
+        print(Style.RESET_ALL)        
         if len(start_game) > 0:
             play_hangman()
             start_game_valid_response = True
@@ -99,7 +102,8 @@ def play_hangman():
     username_valid_response = False
 
     while username_valid_response == False:
-        username = input("Enter your name:\n")
+        username = input(Fore.YELLOW +"Enter your name:\n")
+        print(Style.RESET_ALL)
         if len(username) > 0:
             username_valid_response = True
         else:
