@@ -1,31 +1,48 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Goal For This Project 
 
-Welcome Oran-123,
+This Project will be a text-based python game where the user guesses the letters that make up a word before their lives run out. To win the game, the user must guess all the letters before they run out of lives. The user receives a score based on them guessing the word correctly and the number of lives they have remaining. There are bonus scores for guessing the word without losing a single life or if the user has more than four lives remaining. The user must try to finish the game with the highest score possible. 
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![Goals for this project image]()
 
-## Reminders
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+# Table of Contens 
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+* [UX](#ux "UX")
+    * [User Goals](#user-goals "User Goals")
+    * [User Stories](#user-stories "User Stories")
+    * [Site Owner Goals](#site-owner-goals "Site Owner Goals")
+* [Requirements and Expectations](#requirements-and-expectations "Requirements and Expectations")
+    * [Requirements](#Requirments "Requirements")
+    * [Expectations](#expectations "Expectations")
+    * [How-To-Play](#how-to-play "How To Play")
+* [Design-Choices](#design-choices "Design Choices")
+    * [Fonts](#fonts "Fonts")
+    * [Colours](#colours "Colors")
+    * [Process](#process "Process")
+* [Features](#features "Features")
+    * [Existing-Features](#existing-features "Existing Feautres")
+        * [Start-Game-Button](#start-game-button "Start Game Button")
+        * [Game-Logo](#game-logo "Game Logo")
+        * [Welcome-Message](#welcome-message "Welcome Message")
+        * [Game-Rules](#game-rules "Game Rules")
+        * [Enter-Username](#enter-username "Enter Username")
+        * [Hidden-Letters](#hidden-letters "Hidden Letters")
+        * [User-Letters/Words](#used-letters/words "User Letters and Words")
+        * [Lives Remaining](#lives-remaining "Lives Remaining")
+        * [Response-To-Correct/Incorrect-Letters](#response-to-correct/incorrect-letters "Response To Correct/Incorrect Letters")
+        * [Score](#score "Score")
+        * [Result](#result "Result")
+        * [Leaderboard](#leaderboard "Leaderboard")
+    * [Features-To-Be-Implemented](#features-to-be-implemented "Features to be Implemented")
+        * [Difficulty-Levels](#difficulty-levels "Difficulty Levels")
+* [Testing](#testng "Testing")
+    * [UAT](#uat "UAT")
+    * [Code-Validation](#code-validation "Code Validation")
+    * [Contrast-Testing](#contrast-testing "Contrast Testing")
+    * [Resolve-Bugs](#resolved-bugs "Resoloved Bugs")
+    * [Open-Bugs](#open-bugs "Open Bugs")
+* [Technologies](#technologies "Technologies")
+    * [Languages](#languages "Languages")
+    * [Libraries-&-Frameworks](#libraries "Libraries & Frameworks")
+* [Deployment](#deployment "Deployment")
+* [Credits](#credits "Credits")
