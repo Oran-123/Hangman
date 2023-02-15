@@ -2,9 +2,9 @@ import random
 import string
 import sys
 import gspread
-import datetime 
+import datetime
 
-from results import * 
+from results import *
 from colorama import Fore, Back, Style
 from leaderboard import LEADERBOARD
 from logo import LOGO
@@ -17,11 +17,11 @@ from time import sleep
 from google.oauth2.service_account import Credentials
 
 LINES = Fore.GREEN + "-------------------------------------------------------------------------------\n-------------------------------------------------------------------------------"
-UNSCATHED_SCORE = 100 
-FULL_WORD_SCORE = 50 
-HALF_OF_LIVES_REMAINING_BONUS = 25 
-SCORE_PER_LIFE = 10  
-SCORE_PER_LETTER = 5 
+UNSCATHED_SCORE = 100
+FULL_WORD_SCORE = 50
+HALF_OF_LIVES_REMAINING_BONUS = 25
+SCORE_PER_LIFE = 10
+SCORE_PER_LETTER = 5
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -34,7 +34,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman-leaderboard')
 
-leaderboard =  SHEET.worksheet('leaderboard')
+leaderboard = SHEET.worksheet('leaderboard')
 
 date = datetime.today().strftime('%Y-%m-%d')
 
@@ -47,6 +47,7 @@ def welcome_message():
         sys.stdout.write(letters)
         sys.stdout.flush()
     playgame_or_leaderboard()
+
 
 def playgame_or_leaderboard():
     print(LINES)
@@ -74,13 +75,14 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     while start_game_valid_response == False:
-        start_game = input(Fore.CYAN +"Press any button to start the game:\n")
+        start_game = input(Fore.CYAN + "Press any button to start the game:\n")
         print(Style.RESET_ALL)        
         if len(start_game) > 0:
             play_hangman()
             start_game_valid_response = True
         else:
             start_game_valid_response = False
+
 
 def get_random_word(words):
     """ 
@@ -91,6 +93,7 @@ def get_random_word(words):
     while "-" in random_word or " " in random_word:
         random_word = random.choice(words)
     return random_word.upper()
+
 
 def play_hangman():
 
@@ -106,7 +109,7 @@ def play_hangman():
     attempts = 0 
 
     correct_response = " " 
-    
+
     #ask for username 
     username_valid_response = False
 
