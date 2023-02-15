@@ -68,8 +68,9 @@ def playgame_or_leaderboard():
             print("display leaderboard")
             a_or_b_valid_response = True
         elif player_response != "A" or player_response != "B":
-            print ("Invalid character entered, please enter either A or B")
+            print("Invalid character entered, please enter either A or B")
             a_or_b_valid_response = False 
+
 
 def display_rules(rules):
     print(rules)
@@ -96,23 +97,18 @@ def get_random_word(words):
 
 
 def play_hangman():
-
     #defined game varriables 
     answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
     used_words = []
-
     # user lives 
     lives = 7 
     attempts = 0 
-
     correct_response = " " 
-
     #ask for username 
     username_valid_response = False
-
     while username_valid_response == False:
         username = input(Fore.CYAN +"Enter your name:\n")
         print(Style.RESET_ALL)
@@ -144,13 +140,13 @@ def play_hangman():
             print(Style.RESET_ALL)
             #display current lives 
             if lives > 5:
-                print(Fore.GREEN + f'{username} you have {lives} remaining')
+                print(Fore.GREEN + f'{username} you have {lives} lives remaining')
                 print(Style.RESET_ALL)
             elif 6 > lives > 3:
-                print(Fore.YELLOW + f'{username} you have {lives} remaining')
+                print(Fore.YELLOW + f'{username} you have {lives} lives remaining')
                 print(Style.RESET_ALL)
             elif lives < 4:
-                print(Fore.RED + f'{username} you have {lives} remaining')
+                print(Fore.RED + f'{username} you have {lives} lives remaining')
                 print(Style.RESET_ALL) 
             print("\n")
             if correct_response == True:
