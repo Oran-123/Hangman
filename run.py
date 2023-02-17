@@ -90,9 +90,9 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     if start_game_valid_response is False:
-        start_game = input(Fore.CYAN + "Press any button to start the game:\n")
+        start_game = input(Fore.CYAN + "Press ENTER to start the game:\n")
         print(Style.RESET_ALL)
-        if len(start_game) > 0:
+        if start_game == "":
             play_hangman()
             start_game_valid_response = True
         else:
