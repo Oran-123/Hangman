@@ -2,7 +2,7 @@
 
 This Project will be a text-based python game where the user guesses the letters that make up a word before their lives run out. To win the game, the user must guess all the letters before they run out of lives. The user receives a score based on them guessing the word correctly and the number of lives they have remaining. There are bonus scores for guessing the word without losing a single life or if the user has more than four lives remaining. The user must try to finish the game with the highest score possible. 
 
-![Goals for this project image](../Hangman/documents/images/ui.png)
+![Goals for this project image](/documents/images/ui.png)
 
 
 # Table of Contens 
@@ -256,23 +256,23 @@ When the intro message is printed the user can enter text to the terminal as the
 
 Result when user inputs keys during the intro messaging being printed 
 
-![welcome message bug](../Hangman/documents/images/bug_welcome_message.png)
+![welcome message bug](/documents/images/bug_welcome_message.png)
  
 Expected result 
 
-![welcome message bug expected result](../Hangman/documents/images/welcome_message_expected_result.png)
+![welcome message bug expected result](/documents/images/welcome_message_expected_result.png)
  
 ### Enter A) To Play or B) To view the leaderboard:
 
 If the user enters B at this point then the program prints the message “display leaderboard” but the expectation is that the leaderboard data is displayed:  
 
-![view leaderboard bug](../Hangman/documents/images/bug_call_leaderboard.png)
+![view leaderboard bug](/documents/images/bug_call_leaderboard.png)
 
 ### Enter button must be an accepted key for the press about 
 
 After the intro text is printed, the user is asked to enter any key to continue with the game. However, if the user presses the Enter button, then the validation check will fail, and the message will be printed again. 
 
-![enter button bug bug](../Hangman/documents/images/bug_enter_button_does_not_start_game.png)
+![enter button bug bug](/documents/images/bug_enter_button_does_not_start_game.png)
  
 ### If you enter a letter that was already entered, then change the response message 
 
@@ -280,7 +280,7 @@ If the user selects a word that was already guessed the previous success/incorre
 
 In the following message A was entered and an incorrect message was printed but then A was entered for a second time and the same error message was printed again:
 
-![input response message bug](../Hangman/documents/images/bug_response_message.png)
+![input response message bug](/documents/images/bug_response_message.png)
  
 ### Full Word Not Printed 
 
@@ -288,7 +288,7 @@ When you completed the game with a win or loose message the final word is not pr
 
 This leads to poor user experience.
 
-![end game result bug](../Hangman/documents/images/bug_lost_message.png)
+![end game result bug](/documents/images/bug_lost_message.png)
  
 ## Technologies used
 
