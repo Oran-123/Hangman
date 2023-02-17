@@ -141,6 +141,8 @@ I used patorjk.com with the font set to Big to create giant text that would appe
 
 ## Process Map 
 
+![welcome message bug](/documents/process%20maps/hangman_game.pdf)
+
 ## Features
 
 ### Existing Features
