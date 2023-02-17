@@ -50,6 +50,7 @@ def welcome_message():
 
 
 def playgame_or_leaderboard():
+    
     print(LINES)
     print(Style.RESET_ALL)
     print("A - PLAY GAME \nB - LEADERBOARD")
@@ -73,9 +74,13 @@ def playgame_or_leaderboard():
 
 
 def display_rules(rules):
+    """
+    Prints the rules of the game which are imported from 
+    rules.py
+    """
     print(rules)
     start_game_valid_response = False
-    while start_game_valid_response == False:
+    if start_game_valid_response == False:
         start_game = input(Fore.CYAN + "Press any button to start the game:\n")
         print(Style.RESET_ALL)        
         if len(start_game) > 0:
@@ -97,17 +102,20 @@ def get_random_word(words):
 
 
 def play_hangman():
-    #defined game varriables 
+     """
+     Main game function displays random word and enables user
+     to input guesses, also validates the users response 
+     """
     answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
     used_words = []
-    # user lives 
+    
     lives = 7 
     attempts = 0 
-    correct_response = " " 
-    #ask for username 
+    correct_response = " "
+
     username_valid_response = False
     while username_valid_response == False:
         username = input(Fore.CYAN +"Enter your name:\n")
@@ -119,7 +127,7 @@ def play_hangman():
     
 
     while username_valid_response == True:
-        # let user select letters until word is guessed correctly 
+        
         while len(answer_letters) > 0 and lives > 0: 
             print(LINES)
             print(Style.RESET_ALL)
