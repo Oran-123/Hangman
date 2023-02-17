@@ -41,7 +41,7 @@ date = datetime.today().strftime('%Y-%m-%d')
 
 def welcome_message():
     """
-    Prints the welcome message letter by letter 
+    Prints the welcome message letter by letter
     """
     print(Fore.GREEN + LOGO)
     print(Style.RESET_ALL)
@@ -55,7 +55,7 @@ def welcome_message():
 def playgame_or_leaderboard():
 
     """
-    Function enables the user to input the letter A or B 
+    Function enables the user to input the letter A or B
     Depending on the letter entered eithe the game or show leaderboard
     functions will be called
     """
@@ -79,19 +79,19 @@ def playgame_or_leaderboard():
             a_or_b_valid_response = True
         elif player_response != "A" or player_response != "B":
             print("Invalid character entered, please enter either A or B")
-            a_or_b_valid_response = False 
+            a_or_b_valid_response = False
 
 
 def display_rules(rules):
     """
-    Prints the rules of the game which are imported from 
+    Prints the rules of the game which are imported from
     rules.py
     """
     print(rules)
     start_game_valid_response = False
-    if start_game_valid_response == False:
+    if start_game_valid_response is False:
         start_game = input(Fore.CYAN + "Press any button to start the game:\n")
-        print(Style.RESET_ALL)        
+        print(Style.RESET_ALL)
         if len(start_game) > 0:
             play_hangman()
             start_game_valid_response = True
@@ -100,9 +100,9 @@ def display_rules(rules):
 
 
 def get_random_word(words):
-    """ 
+    """
     picks a random word from the list of words
-    and validates the word 
+    and validates the word
     """
     random_word = random.choice(words)
     while "-" in random_word or " " in random_word:
@@ -113,36 +113,34 @@ def get_random_word(words):
 def play_hangman():
     """
     Main game function displays random word and enables user
-    to input guesses, also validates the users response 
+    to input guesses, also validates the users response
     """
     answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
     used_words = []
-    
-    lives = 7 
-    attempts = 0 
+   
+    lives = 7
+    attempts = 0
     correct_response = " "
 
     username_valid_response = False
-    while username_valid_response == False:
-        username = input(Fore.CYAN +"Enter your name:\n")
+    if username_valid_response is False:
+        username = input(Fore.CYAN + "Enter your name:\n")
         print(Style.RESET_ALL)
         if len(username) > 0:
             username_valid_response = True
         else:
-            username_valid_response = False
-    
+            username_valid_response = Fals
 
-    while username_valid_response == True:
-        
-        while len(answer_letters) > 0 and lives > 0: 
+    if username_valid_response is True:
+        while len(answer_letters) > 0 and lives > 0:
             print(LINES)
             print(Style.RESET_ALL)
     
             print(HANGMAN_STAGES[attempts])
-            
+
             print(Fore.RED + f'Used Letters: {used_letters}')
             print(Style.RESET_ALL)
 
@@ -150,7 +148,7 @@ def play_hangman():
             print(Style.RESET_ALL)  
 
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
-            print("Current Word:" ," ".join(hidden_answer_letters) )
+            print("Current Word:" , " ".join(hidden_answer_letters))
             print(LINES)
             print(Style.RESET_ALL)
 
@@ -164,10 +162,10 @@ def play_hangman():
                 print(Fore.RED + f'{username} you have {lives} lives remaining')
                 print(Style.RESET_ALL) 
             print("\n")
-            if correct_response == True:
+            if correct_response is True:
                 print(Fore.GREEN + "Well done, that is correct!")
                 print(Style.RESET_ALL)
-            elif correct_response == False:
+            elif correct_response is False:
                 print(Fore.RED + "Oh no, that is incorrect!")
                 print(Style.RESET_ALL)
             else:
@@ -203,27 +201,29 @@ def play_hangman():
                         attempts += 1  
             else: 
                 print("Invalid, character. Please try typing a letter!")
-                correct_response = " "     
+                correct_response = " "
         score = (lives * SCORE_PER_LIFE) 
         if len(answer_letters) == 0:
-            final_result_won(lives, username, score,len(answer_letters))
+            final_result_won(lives, username, score, len(answer_letters))
             correct_response = " "
             upate_leaderboard()
         elif lives == 0:
             print(HANGMAN_STAGES[attempts])
             correct_response = " "
-            final_result_lost(username,score)            
-        
+            final_result_lost(username, score)            
+
+
 def final_result_lost(username, score):
     """
-    Prints personalised message in response to the users score 
+    Prints personalised message in response to the users score
     """
     print(Fore.RED + LOSS)
     print(Style.RESET_ALL)
     print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
     play_again()
-    
-def final_result_won(lives,username,score,word_length):
+
+
+def final_result_won(lives, username, score, word_length):
     """
     Prints ASCII art to highlight if the user won or lost the game
     """
@@ -231,19 +231,20 @@ def final_result_won(lives,username,score,word_length):
     print(Fore.GREEN + VICTORY)
     print(Style.RESET_ALL)
     if lives == 7:
-        final_score = final_score + UNSCATHED_SCORE 
-        print(Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n') 
+        final_score = final_score + UNSCATHED_SCORE
+        print(Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
         print(Fore.GREEN + f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n') 
         print(Style.RESET_ALL)
     elif lives < 4:
-        print(Fore.GREEN + f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n') 
+        print(Fore.GREEN + f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
 
     upate_leaderboard(username, final_score)
-    
+
+
 def play_again():
     """
     Enables the user to select next action after the game finishes
@@ -251,7 +252,7 @@ def play_again():
     """
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
-    while play_again_valid_response == False:
+    if play_again_valid_response is False:
         selected_option = input(Fore.CYAN + "Enter Your Choice:\n").upper()
         print(Style.RESET_ALL)
         if selected_option == "A":
@@ -268,10 +269,10 @@ def play_again():
             play_again_valid_response == False
 
 
-def upate_leaderboard(username,score):
+def upate_leaderboard(username, score):
     """
-    Updates the google sheet with the users score 
-    Called at the end of each game 
+    Updates the google sheet with the users score
+    Called at the end of each game
     """
     data = [username, score, str(date)]
     print('Updating leaderborad....')
@@ -280,6 +281,7 @@ def upate_leaderboard(username,score):
     print('Leaderboard succesfully updated\n')
     play_again()
     
+
 def show_leaderboard():
     """
     Prints the leaderboard using the ASCII art created in the leaderboard.py file
@@ -316,7 +318,7 @@ def leaderboard_options():
     """
     print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
-    while play_again_valid_response == False:
+    if play_again_valid_response is False:
         selected_option = input(Fore.CYAN + "Enter Your Choice:\n").upper()
         print(Style.RESET_ALL)
         if selected_option == "A":
@@ -329,11 +331,11 @@ def leaderboard_options():
             print("Invalid option selected, please try again and select A or B")
             play_again_valid_response == False
 
+
 def main ():
     welcome_message()
 
 main()
-
 
 
 
