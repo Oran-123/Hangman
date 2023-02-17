@@ -2,7 +2,7 @@
 
 This Project will be a text-based python game where the user guesses the letters that make up a word before their lives run out. To win the game, the user must guess all the letters before they run out of lives. The user receives a score based on them guessing the word correctly and the number of lives they have remaining. There are bonus scores for guessing the word without losing a single life or if the user has more than four lives remaining. The user must try to finish the game with the highest score possible. 
 
-![Goals for this project image]()
+![Goals for this project image](documnets/images/ui.png)
 
 
 # Table of Contens 
