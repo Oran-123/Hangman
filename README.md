@@ -226,3 +226,11 @@ Game Finish
 #### Leaderboard 
 
 If the user chooses to play the game the game will restart from when the user has to enter a username 
+
+### Features to be implemented 
+
+#### Different levels of difficulty 
+
+In the future I would like to include an option to play the game in three different difficulty levels and each level will determine the range of letters in the word and the number of lives the user has to guess the word 
+
+For example, an easy level could have words with between 3-5 words and the user has 7 lives but a hard level would see the user guess words with 7+ letters with only 5 lives. 
