@@ -148,7 +148,7 @@ def play_hangman():
             print(Style.RESET_ALL)  
 
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
-            print("Current Word:" , " ".join(hidden_answer_letters))
+            print("Current Word:", " ".join(hidden_answer_letters))
             print(LINES)
             print(Style.RESET_ALL)
 
@@ -257,16 +257,16 @@ def play_again():
         print(Style.RESET_ALL)
         if selected_option == "A":
             play_hangman()
-            play_again_valid_response == True
+            play_again_valid_response is True
         elif selected_option == "B":
             show_leaderboard()
-            play_again_valid_response == True
+            play_again_valid_response is True
         elif selected_option == "C":
             exit()
-            play_again_valid_response == True
+            play_again_valid_response is True
         else:
             print("Invalid option selected, please try again and select A, B or C")
-            play_again_valid_response == False
+            play_again_valid_response is False
 
 
 def upate_leaderboard(username, score):
@@ -336,6 +336,3 @@ def main ():
     welcome_message()
 
 main()
-
-
-
