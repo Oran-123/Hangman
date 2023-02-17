@@ -1,78 +1,94 @@
-# Goal For This Project 
+# G*al F*r This Pr*ject 
 
-This Project will be a text-based python game where the user guesses the letters that make up a word before their lives run out. To win the game, the user must guess all the letters before they run out of lives. The user receives a score based on them guessing the word correctly and the number of lives they have remaining. There are bonus scores for guessing the word without losing a single life or if the user has more than four lives remaining. The user must try to finish the game with the highest score possible. 
+This Pr*ject will be a text-based pyth*n game where the user guesses the letters that make up a w*rd bef*re their lives run *ut. T* win the game, the user must guess all the letters bef*re they run *ut *f lives. The user receives a sc*re based *n them guessing the w*rd c*rrectly and the number *f lives they have remaining. There are b*nus sc*res f*r guessing the w*rd with*ut l*sing a single life *r if the user has m*re than f*ur lives remaining. The user must try t* finish the game with the highest sc*re p*ssible. 
 
-![Goals for this project image]()
+![G*als f*r this pr*ject image]()
 
 
-# Table of Contens 
+# Table *f C*ntens 
 
 * [UX](#ux "UX")
-    * [User Goals](#user-goals "User Goals")
-    * [User Stories](#user-stories "User Stories")
-    * [Site Owner Goals](#site-owner-goals "Site Owner Goals")
-* [Requirements and Expectations](#requirements-and-expectations "Requirements and Expectations")
+    * [User G*als](#user-g*als "User G*als")
+    * [User St*ries](#user-st*ries "User St*ries")
+    * [Site *wner G*als](#site-*wner-g*als "Site *wner G*als")
+* [Requirements and Expectati*ns](#requirements-and-expectati*ns "Requirements and Expectati*ns")
     * [Requirements](#Requirments "Requirements")
-    * [Expectations](#expectations "Expectations")
-    * [How-To-Play](#how-to-play "How To Play")
-* [Design-Choices](#design-choices "Design Choices")
-    * [Fonts](#fonts "Fonts")
-    * [Colours](#colours "Colors")
-    * [Process](#process "Process")
+    * [Expectati*ns](#expectati*ns "Expectati*ns")
+    * [H*w-T*-Play](#h*w-t*-play "H*w T* Play")
+* [Design-Ch*ices](#design-ch*ices "Design Ch*ices")
+    * [F*nts](#f*nts "F*nts")
+    * [C*l*urs](#c*l*urs "C*l*rs")
+    * [Pr*cess](#pr*cess "Pr*cess")
 * [Features](#features "Features")
     * [Existing-Features](#existing-features "Existing Feautres")
-        * [Start-Game-Button](#start-game-button "Start Game Button")
-        * [Game-Logo](#game-logo "Game Logo")
-        * [Welcome-Message](#welcome-message "Welcome Message")
+        * [Start-Game-Butt*n](#start-game-butt*n "Start Game Butt*n")
+        * [Game-L*g*](#game-l*g* "Game L*g*")
+        * [Welc*me-Message](#welc*me-message "Welc*me Message")
         * [Game-Rules](#game-rules "Game Rules")
         * [Enter-Username](#enter-username "Enter Username")
         * [Hidden-Letters](#hidden-letters "Hidden Letters")
-        * [User-Letters/Words](#used-letters/words "User Letters and Words")
+        * [User-Letters/W*rds](#used-letters/w*rds "User Letters and W*rds")
         * [Lives Remaining](#lives-remaining "Lives Remaining")
-        * [Response-To-Correct/Incorrect-Letters](#response-to-correct/incorrect-letters "Response To Correct/Incorrect Letters")
-        * [Score](#score "Score")
+        * [Resp*nse-T*-C*rrect/Inc*rrect-Letters](#resp*nse-t*-c*rrect/inc*rrect-letters "Resp*nse T* C*rrect/Inc*rrect Letters")
+        * [Sc*re](#sc*re "Sc*re")
         * [Result](#result "Result")
-        * [Leaderboard](#leaderboard "Leaderboard")
-    * [Features-To-Be-Implemented](#features-to-be-implemented "Features to be Implemented")
+        * [Leaderb*ard](#leaderb*ard "Leaderb*ard")
+    * [Features-T*-Be-Implemented](#features-t*-be-implemented "Features t* be Implemented")
         * [Difficulty-Levels](#difficulty-levels "Difficulty Levels")
 * [Testing](#testng "Testing")
     * [UAT](#uat "UAT")
-    * [Code-Validation](#code-validation "Code Validation")
-    * [Contrast-Testing](#contrast-testing "Contrast Testing")
-    * [Resolve-Bugs](#resolved-bugs "Resoloved Bugs")
-    * [Open-Bugs](#open-bugs "Open Bugs")
-* [Technologies](#technologies "Technologies")
+    * [C*de-Validati*n](#c*de-validati*n "C*de Validati*n")
+    * [C*ntrast-Testing](#c*ntrast-testing "C*ntrast Testing")
+    * [Res*lve-Bugs](#res*lved-bugs "Res*l*ved Bugs")
+    * [*pen-Bugs](#*pen-bugs "*pen Bugs")
+* [Techn*l*gies](#techn*l*gies "Techn*l*gies")
     * [Languages](#languages "Languages")
-    * [Libraries-&-Frameworks](#libraries "Libraries & Frameworks")
-* [Deployment](#deployment "Deployment")
+    * [Libraries-&-Framew*rks](#libraries "Libraries & Framew*rks")
+* [Depl*yment](#depl*yment "Depl*yment")
 * [Credits](#credits "Credits")
 
 
 # UX
 
-## User Goals
+## User G*als
 
-* Presented with clear instructions on how to play the game
-* See the number of blank spaces in a word 
-* See the set of letters which they have already guessed
-* Know when they guessed a letter correctly/incorrectly 
-* Score feedback at the end of the game
-* Access the leaderboard 
+* Presented with clear instructi*ns *n h*w t* play the game
+* See the number *f blank spaces in a w*rd 
+* See the set *f letters which they have already guessed
+* Kn*w when they guessed a letter c*rrectly/inc*rrectly 
+* Sc*re feedback at the end *f the game
+* Access the leaderb*ard 
 
-## User Stories
+## User St*ries
 
-* As a user, I want to create a username that can be entered on the leaderboard
-* As a user, I want to be able to read the rules of the game
-* As a user, I want to be able to navigate throgu the game intuitively 
-* As a user, I want to see my score at the end of the game
-* As a user, I want a clear image and message to highlight if I won or lost the game
-* As a user, I want to see what the final word is regardless of whether I win/loose
-* As a user, I want my score to be added to the leaderboard when I finish a game 
-* As a user, I want to be able to see the top results on the leaderboard 
+* As a user, I want t* create a username that can be entered *n the leaderb*ard
+* As a user, I want t* be able t* read the rules *f the game
+* As a user, I want t* be able t* navigate thr*gu the game intuitively 
+* As a user, I want t* see my sc*re at the end *f the game
+* As a user, I want a clear image and message t* highlight if I w*n *r l*st the game
+* As a user, I want t* see what the final w*rd is regardless *f whether I win/l**se
+* As a user, I want my sc*re t* be added t* the leaderb*ard when I finish a game 
+* As a user, I want t* be able t* see the t*p results *n the leaderb*ard 
 
-## Site owners Goals
+## Site *wners G*als
 
-* Use colour to highlight key text and when the user is required to enter a value 
-* Present users with the score of their game
-* Validate the user's response to ensure that they can play the game without an error 
-* Capture each user's results on a leaderboard 
+* Use c*l*ur t* highlight key text and when the user is required t* enter a value 
+* Present users with the sc*re *f their game
+* Validate the user's resp*nse t* ensure that they can play the game with*ut an err*r 
+* Capture each user's results *n a leaderb*ard 
+
+## User Requirements and Expectati*ns
+
+### Requirements
+
+* Terminal centre *f the screen 
+* Clear instructi*ns are printed *n the terminal when the user starts the game. If the user restarts the game, the rules are n*t re-printed t* the terminal 
+* The sc*re displayed at the end *f the game 
+* The result (win/l*ss) is displayed at the end *f a r*und 
+* Game validation: 
+    * The selected w*rd must n*t have any spaces *r dashes (-)
+    * The user cann*t enter the same letter multiple times 
+    * The user can *nly enter letters and n* *ther keys 
+    * All unguessed letters are replaced with a "_." 
+    * A c*mplete w*rd guess must have the same number *f letters as the answer w*rd 
+    * If the user runs *ut *f lives, the game ends 
