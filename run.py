@@ -200,8 +200,8 @@ def play_hangman():
                         lives -= 1
                         attempts += 1
             else:
-                print("Invalid, character. Please try typing a letter!")
                 correct_response = " "
+                print("Invalid, character. Please try typing a letter!")
         score = (lives * SCORE_PER_LIFE)
         if len(answer_letters) == 0:
             final_result_won(lives, username, score, len(answer_letters))
