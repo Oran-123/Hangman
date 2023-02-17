@@ -101,3 +101,18 @@ This Pr*ject will be a text-based pyth*n game where the user guesses the letters
 * I expect to be able to access the leaderboard before starting a game and after a game finishes 
 * I expect to see an image dictating whether I won or lost at the end of the game 
 * I expect feedback on performance
+
+How to Play
+*	A random word is selected from a file with 5000 
+*	Each letter is replaced with a _
+*	Once the user guesses a correct letter, it is displayed in the word 
+*	The user starts with seven lives 
+*	For Every incorrect guess, one life is deducted 
+*	The user can guess the complete word at any time, but the word they guess must have the same number of letters as the answer word 
+*	The game ends when the user either:
+    * Runs out of lives 
+    * Guesses all the letters in the word with lives remaining 
+*	The user will receive 10 points for each live remaining and bonuses for the following;
+    * Guessing the complete word 25
+    * Finishing the game with more than four lives remaining, 50 
+    * Completing the game without losing a single word 100 
