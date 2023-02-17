@@ -134,3 +134,7 @@ I used the colormera library to print text in several colours to highlight diffe
 The colour of the button and  the background colour of the screen was set to the following colours – this was to create a theme that replicated an old computer game:
 * Black – Background 
 * Green – button 
+
+## Images
+
+I used patorjk.com with the font set to Big to create giant text that would appear as an image for the logo at when the program is started, to present the rules, and at the end of the game to show the result 
