@@ -65,7 +65,7 @@ def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
     print("\n")
     a_or_b_valid_response = False
-    if a_or_b_valid_response == False:
+    if a_or_b_valid_response is False:
         player_response = input(Fore.CYAN + "Enter A or B to continue:\n").upper()
         print(Style.RESET_ALL)
         print(LINES)
@@ -111,10 +111,10 @@ def get_random_word(words):
 
 
 def play_hangman():
-     """
-     Main game function displays random word and enables user
-     to input guesses, also validates the users response 
-     """
+    """
+    Main game function displays random word and enables user
+    to input guesses, also validates the users response 
+    """
     answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
