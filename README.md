@@ -234,3 +234,72 @@ If the user chooses to play the game the game will restart from when the user ha
 In the future I would like to include an option to play the game in three different difficulty levels and each level will determine the range of letters in the word and the number of lives the user has to guess the word 
 
 For example, an easy level could have words with between 3-5 words and the user has 7 lives but a hard level would see the user guess words with 7+ letters with only 5 lives. 
+
+## Testing
+
+### Code Validation 
+
+### contrast checking 
+
+## Resolved Bugs 
+
+### If statement with break and continue to skip the intro message
+
+When the intro message is printed the user can enter text to the terminal as the message is printed out. This is a poor user experience as an intuitive and expected response would be for the program to skip the intro text. 
+Result when user inputs keys during the intro messaging being printed 
+ 
+Expected result 
+ 
+Enter A) To Play or B) To view the leaderboard:
+If the user enters B at this point then the program prints the message “display leaderboard” but the expectation is that the leaderboard data is displayed:  
+
+### Enter button must be an accepted key for the press about 
+
+After the intro text is printed, the user is asked to enter any key to continue with the game. However, if the user presses the Enter button, then the validation check will fail, and the message will be printed again. 
+ 
+### If you enter a letter that was already entered, then change the response message 
+
+If the user selects a word that was already guessed the previous success/incorrect message will be printed. This will give the user 
+In the following message A was entered and an incorrect message was printed but then A was entered for a second time and the same error message was printed again:
+ 
+### Full Word Not Printed 
+
+When you completed the game with a win or loose message the final word is not printed b
+ 
+## Technologies used
+
+### Languages
+* HTML for the structure of the site
+* CSS for the design of the site
+* JavaScript was built into the template supplied by Code Institute
+* Python for the game code
+* Markdown for the content in my README file
+
+### Libraries and Frameworks
+ 
+* Python package for Google Sheets gspread
+* Colorama 
+* Time
+* Sys
+* Random
+* String
+* Datetime
+* For delaying the appearance of the text python time library
+* For selecting a random card from the deck python random library
+
+### Tools
+* For construction Gitpod
+* For python validation PEP8 online
+* For HTML validation W3C HTML Validation Service
+* For CSS validation W3C CSS Validation Service
+* For python code validation PEP8 online
+* For the contrast checking WebAIM
+* For python queries python
+* For the colour pallet Colourmind
+* For spell checking Grammarly
+* For google drive and google sheet APIs Google Cloud Platform
+* To hold the completed game data Google Sheets
+### Deployment
+### Credits
+* Code Institute 
+* Simen Daehlin 
