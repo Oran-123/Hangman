@@ -290,6 +290,8 @@ Error Messages:
 
 ### contrast checking 
 
+![contrast checker result](/documents/images/contrast_checker.png)
+
 ## Resolved Bugs 
 
 ### If statement with break and continue to skip the intro message
