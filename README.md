@@ -69,3 +69,10 @@ This Project will be a text-based python game where the user guesses the letters
 * As a user, I want to see what the final word is regardless of whether I win/loose
 * As a user, I want my score to be added to the leaderboard when I finish a game 
 * As a user, I want to be able to see the top results on the leaderboard 
+
+## Site owners Goals
+
+* Use colour to highlight key text and when the user is required to enter a value 
+* Present users with the score of their game
+* Validate the user's response to ensure that they can play the game without an error 
+* Capture each user's results on a leaderboard 
