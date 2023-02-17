@@ -92,3 +92,12 @@ This Pr*ject will be a text-based pyth*n game where the user guesses the letters
     * All unguessed letters are replaced with a "_." 
     * A c*mplete w*rd guess must have the same number *f letters as the answer w*rd 
     * If the user runs *ut *f lives, the game ends 
+
+## Expectations
+
+* I expect to know how many lives I have remaining 
+* I expect the letters of the answer word to be hidden by a "_" 
+* I expect to know when the game starts and finishes
+* I expect to be able to access the leaderboard before starting a game and after a game finishes 
+* I expect to see an image dictating whether I won or lost at the end of the game 
+* I expect feedback on performance
