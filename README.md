@@ -243,7 +243,7 @@ Using Code Institutes Python Linter validator, I have identified several errors 
 
 Error Messages:
 
-![welcome message bug](../Hangman/documents/images/pep8_code_validation.png)
+![welcome message bug](/documents/images/pep8_code_validation.png)
 
 
 ### contrast checking 
