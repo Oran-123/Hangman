@@ -55,7 +55,7 @@ def playgame_or_leaderboard():
     print("A - PLAY GAME \nB - LEADERBOARD")
     print("\n")
     a_or_b_valid_response = False
-    while a_or_b_valid_response == False:
+    if a_or_b_valid_response == False:
         player_response = input(Fore.CYAN + "Enter A or B to continue:\n").upper()
         print(Style.RESET_ALL)
         print(LINES)
