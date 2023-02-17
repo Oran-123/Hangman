@@ -40,6 +40,9 @@ date = datetime.today().strftime('%Y-%m-%d')
 
 
 def welcome_message():
+    """
+    Prints the welcome message letter by letter 
+    """
     print(Fore.GREEN + LOGO)
     print(Style.RESET_ALL)
     for letters in WELCOME:
@@ -50,7 +53,13 @@ def welcome_message():
 
 
 def playgame_or_leaderboard():
-    
+
+    """
+    Function enables the user to input the letter A or B 
+    Depending on the letter entered eithe the game or show leaderboard
+    functions will be called
+    """
+
     print(LINES)
     print(Style.RESET_ALL)
     print("A - PLAY GAME \nB - LEADERBOARD")
@@ -206,12 +215,18 @@ def play_hangman():
             final_result_lost(username,score)            
         
 def final_result_lost(username, score):
+    """
+    Prints personalised message in response to the users score 
+    """
     print(Fore.RED + LOSS)
     print(Style.RESET_ALL)
     print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
     play_again()
     
 def final_result_won(lives,username,score,word_length):
+    """
+    Prints ASCII art to highlight if the user won or lost the game
+    """
     final_score = score + FULL_WORD_SCORE
     print(Fore.GREEN + VICTORY)
     print(Style.RESET_ALL)
@@ -230,6 +245,10 @@ def final_result_won(lives,username,score,word_length):
     upate_leaderboard(username, final_score)
     
 def play_again():
+    """
+    Enables the user to select next action after the game finishes
+    User can enter A,B or C and a different function will be called depending on input
+    """
     print("What would you like to do next:\nA- Play Again\nB - Leaderboard\nC - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
@@ -250,6 +269,10 @@ def play_again():
 
 
 def upate_leaderboard(username,score):
+    """
+    Updates the google sheet with the users score 
+    Called at the end of each game 
+    """
     data = [username, score, str(date)]
     print('Updating leaderborad....')
     leaderboard.append_row(data)
@@ -258,6 +281,9 @@ def upate_leaderboard(username,score):
     play_again()
     
 def show_leaderboard():
+    """
+    Prints the leaderboard using the ASCII art created in the leaderboard.py file
+    """
     
     print(Fore.GREEN + "Loading leaderboard......")
     print(Style.RESET_ALL)
@@ -285,6 +311,9 @@ def show_leaderboard():
 
 
 def leaderboard_options():
+    """
+    Enables the user to either exit or play the game again 
+    """
     print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
     while play_again_valid_response == False:
