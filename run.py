@@ -65,7 +65,7 @@ def playgame_or_leaderboard():
             print(Style.RESET_ALL)
             a_or_b_valid_response = True
         elif player_response == "B":
-            print("display leaderboard")
+            show_leaderboard()
             a_or_b_valid_response = True
         elif player_response != "A" or player_response != "B":
             print("Invalid character entered, please enter either A or B")
