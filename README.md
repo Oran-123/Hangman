@@ -49,10 +49,23 @@ This Project will be a text-based python game where the user guesses the letters
 
 
 # UX
+
 ## User Goals
+
 * Presented with clear instructions on how to play the game
 * See the number of blank spaces in a word 
 * See the set of letters which they have already guessed
 * Know when they guessed a letter correctly/incorrectly 
 * Score feedback at the end of the game
 * Access the leaderboard 
+
+## User Stories
+
+* As a user, I want to create a username that can be entered on the leaderboard
+* As a user, I want to be able to read the rules of the game
+* As a user, I want to be able to navigate throgu the game intuitively 
+* As a user, I want to see my score at the end of the game
+* As a user, I want a clear image and message to highlight if I won or lost the game
+* As a user, I want to see what the final word is regardless of whether I win/loose
+* As a user, I want my score to be added to the leaderboard when I finish a game 
+* As a user, I want to be able to see the top results on the leaderboard 
