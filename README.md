@@ -239,6 +239,13 @@ For example, an easy level could have words with between 3-5 words and the user 
 
 ### Code Validation 
 
+Using Code Institutes Python Linter validator, I have identified several errors of trailing whitespace. 
+
+Error Messages:
+
+![welcome message bug](../Hangman/documents/images/pep8_code_validation.png)
+
+
 ### contrast checking 
 
 ## Resolved Bugs 
