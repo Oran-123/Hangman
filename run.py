@@ -120,7 +120,7 @@ def play_hangman():
     available_letters = list(string.ascii_uppercase)
     used_letters = []
     used_words = []
-   
+
     lives = 7
     attempts = 0
     correct_response = " "
@@ -138,14 +138,14 @@ def play_hangman():
         while len(answer_letters) > 0 and lives > 0:
             print(LINES)
             print(Style.RESET_ALL)
-    
+
             print(HANGMAN_STAGES[attempts])
 
             print(Fore.RED + f'Used Letters: {used_letters}')
             print(Style.RESET_ALL)
 
             print(Fore.RED + f'Used Words: {used_words}')
-            print(Style.RESET_ALL)  
+            print(Style.RESET_ALL)
 
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
             print("Current Word:", " ".join(hidden_answer_letters))
@@ -160,7 +160,7 @@ def play_hangman():
                 print(Style.RESET_ALL)
             elif lives < 4:
                 print(Fore.RED + f'{username} you have {lives} lives remaining')
-                print(Style.RESET_ALL) 
+                print(Style.RESET_ALL)
             print("\n")
             if correct_response is True:
                 print(Fore.GREEN + "Well done, that is correct!")
@@ -185,7 +185,7 @@ def play_hangman():
                     elif selected_letter not in answer_letters:
                         correct_response = False
                         lives -= 1
-                        attempts += 1  
+                        attempts += 1
             elif len(selected_letter) == len(answer) and selected_letter.isalpha():
                 if selected_letter in used_words:
                     print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
@@ -198,11 +198,11 @@ def play_hangman():
                         used_words.append(selected_letter)
                         correct_respons = False
                         lives -= 1
-                        attempts += 1  
-            else: 
+                        attempts += 1
+            else:
                 print("Invalid, character. Please try typing a letter!")
                 correct_response = " "
-        score = (lives * SCORE_PER_LIFE) 
+        score = (lives * SCORE_PER_LIFE)
         if len(answer_letters) == 0:
             final_result_won(lives, username, score, len(answer_letters))
             correct_response = " "
@@ -210,7 +210,7 @@ def play_hangman():
         elif lives == 0:
             print(HANGMAN_STAGES[attempts])
             correct_response = " "
-            final_result_lost(username, score)            
+            final_result_lost(username, score)
 
 
 def final_result_lost(username, score):
@@ -236,7 +236,7 @@ def final_result_won(lives, username, score, word_length):
         print(Style.RESET_ALL)
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n') 
+        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
     elif lives < 4:
         print(Fore.GREEN + f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
@@ -280,24 +280,24 @@ def upate_leaderboard(username, score):
     print("\n")
     print('Leaderboard succesfully updated\n')
     play_again()
-    
+
 
 def show_leaderboard():
     """
     Prints the leaderboard using the ASCII art created in the leaderboard.py file
     """
-    
+
     print(Fore.GREEN + "Loading leaderboard......")
     print(Style.RESET_ALL)
     sleep(2)
-    leaderboard_data = leaderboard.get_all_values()    
+    leaderboard_data = leaderboard.get_all_values()
     results = leaderboard_data[1:]
 
     sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
 
     print(Fore.YELLOW + f'{LEADERBOARD}')
     print(Style.RESET_ALL)
-    if(len(sorted_results) < 15):
+    if (len(sorted_results) < 15):
         count_of_results = len(sorted_results)
     else:
         count_of_results = 15
@@ -314,7 +314,7 @@ def show_leaderboard():
 
 def leaderboard_options():
     """
-    Enables the user to either exit or play the game again 
+    Enables the user to either exit or play the game again
     """
     print("What would you like to do next:\nA- Play Again\nB - Exit")
     play_again_valid_response = False
@@ -323,16 +323,17 @@ def leaderboard_options():
         print(Style.RESET_ALL)
         if selected_option == "A":
             play_hangman()
-            play_again_valid_response == True
+            play_again_valid_response is True
         elif selected_option == "B":
             exit()
-            play_again_valid_response == True
+            play_again_valid_response is True
         else:
             print("Invalid option selected, please try again and select A or B")
-            play_again_valid_response == False
+            play_again_valid_response is False
 
 
-def main ():
+def main():
     welcome_message()
+
 
 main()
