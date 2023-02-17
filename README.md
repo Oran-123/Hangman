@@ -46,3 +46,13 @@ This Project will be a text-based python game where the user guesses the letters
     * [Libraries-&-Frameworks](#libraries "Libraries & Frameworks")
 * [Deployment](#deployment "Deployment")
 * [Credits](#credits "Credits")
+
+
+# UX
+## User Goals
+* Presented with clear instructions on how to play the game
+* See the number of blank spaces in a word 
+* See the set of letters which they have already guessed
+* Know when they guessed a letter correctly/incorrectly 
+* Score feedback at the end of the game
+* Access the leaderboard 
