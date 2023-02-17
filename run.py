@@ -140,22 +140,20 @@ def play_hangman():
         while len(answer_letters) > 0 and lives > 0: 
             print(LINES)
             print(Style.RESET_ALL)
-            #display art 
+    
             print(HANGMAN_STAGES[attempts])
             
-
-            #display the letters the user selected 
             print(Fore.RED + f'Used Letters: {used_letters}')
             print(Style.RESET_ALL)
-            #dispaly guessed words
+
             print(Fore.RED + f'Used Words: {used_words}')
             print(Style.RESET_ALL)  
-            #display the hidden word
+
             hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
             print("Current Word:" ," ".join(hidden_answer_letters) )
             print(LINES)
             print(Style.RESET_ALL)
-            #display current lives 
+
             if lives > 5:
                 print(Fore.GREEN + f'{username} you have {lives} lives remaining')
                 print(Style.RESET_ALL)
@@ -174,11 +172,12 @@ def play_hangman():
                 print(Style.RESET_ALL)
             else:
                 print()
-            #user input, and validation 
+
             selected_letter = input("Guess a letter:\n").upper()
             if len(selected_letter) == 1 and selected_letter.isalpha():
                 if selected_letter in used_letters:
                     print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
+                    correct_response = " "
                 elif selected_letter not in used_letters:
                     used_letters.append(selected_letter)
                     if selected_letter in answer_letters:
@@ -203,7 +202,8 @@ def play_hangman():
                         lives -= 1
                         attempts += 1  
             else: 
-                print("Invalid, character. Please try typing a letter!")     
+                print("Invalid, character. Please try typing a letter!")
+                correct_response = " "     
         score = (lives * SCORE_PER_LIFE) 
         if len(answer_letters) == 0:
             final_result_won(lives, username, score,len(answer_letters))
