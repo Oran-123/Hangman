@@ -246,25 +246,42 @@ For example, an easy level could have words with between 3-5 words and the user 
 ### If statement with break and continue to skip the intro message
 
 When the intro message is printed the user can enter text to the terminal as the message is printed out. This is a poor user experience as an intuitive and expected response would be for the program to skip the intro text. 
+
 Result when user inputs keys during the intro messaging being printed 
+
+![welcome message bug](../Hangman/documents/images/bug_welcome_message.png)
  
 Expected result 
+
+![welcome message bug expected result](../Hangman/documents/images/welcome_message_expected_result.png)
  
-Enter A) To Play or B) To view the leaderboard:
+### Enter A) To Play or B) To view the leaderboard:
+
 If the user enters B at this point then the program prints the message “display leaderboard” but the expectation is that the leaderboard data is displayed:  
+
+![view leaderboard bug](../Hangman/documents/images/bug_call_leaderboard.png)
 
 ### Enter button must be an accepted key for the press about 
 
 After the intro text is printed, the user is asked to enter any key to continue with the game. However, if the user presses the Enter button, then the validation check will fail, and the message will be printed again. 
+
+![enter button bug bug](../Hangman/documents/images/bug_enter_button_does_not_start_game.png)
  
 ### If you enter a letter that was already entered, then change the response message 
 
 If the user selects a word that was already guessed the previous success/incorrect message will be printed. This will give the user 
+
 In the following message A was entered and an incorrect message was printed but then A was entered for a second time and the same error message was printed again:
+
+![input response message bug](../Hangman/documents/images/bug_response_message.png)
  
 ### Full Word Not Printed 
 
-When you completed the game with a win or loose message the final word is not printed b
+When you completed the game with a win or loose message the final word is not printed, so the user does not see the word they were trying to guess. 
+
+This leads to poor user experience.
+
+![end game result bug](../Hangman/documents/images/bug_lost_message.png)
  
 ## Technologies used
 
