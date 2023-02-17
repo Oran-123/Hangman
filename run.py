@@ -204,26 +204,27 @@ def play_hangman():
                 print("Invalid, character. Please try typing a letter!")
         score = (lives * SCORE_PER_LIFE)
         if len(answer_letters) == 0:
-            final_result_won(lives, username, score, len(answer_letters))
+            final_result_won(lives, username, score, len(answer_letters), answer)
             correct_response = " "
             upate_leaderboard()
         elif lives == 0:
             print(HANGMAN_STAGES[attempts])
             correct_response = " "
-            final_result_lost(username, score)
+            final_result_lost(username, score, answer)
 
 
-def final_result_lost(username, score):
+def final_result_lost(username, score, answer):
     """
     Prints personalised message in response to the users score
     """
     print(Fore.RED + LOSS)
     print(Style.RESET_ALL)
     print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
+    print(f'The word was {answer}\n')
     play_again()
 
 
-def final_result_won(lives, username, score, word_length):
+def final_result_won(lives, username, score, word_length, answer):
     """
     Prints ASCII art to highlight if the user won or lost the game
     """
@@ -236,10 +237,10 @@ def final_result_won(lives, username, score, word_length):
         print(Style.RESET_ALL)
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n')
+        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} lives remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
     elif lives < 4:
-        print(Fore.GREEN + f'That was close {username} you just made it with {lives} remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
+        print(Fore.GREEN + f'That was close {username} you just made it with {lives} lives remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
 
     upate_leaderboard(username, final_score)
