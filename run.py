@@ -43,13 +43,12 @@ def welcome_message():
     """
     Prints the welcome message letter by letter
     """
-    print(Fore.RED + "Press Enter to skip...")
-    print(Style.RESET_ALL)
     print(Fore.GREEN + LOGO)
     print(Style.RESET_ALL)
-    sleep(0.05)
-    sys.stdout.write(letters)
-    sys.stdout.flush()
+    for letters in WELCOME:
+        sleep(0.05)
+        sys.stdout.write(letters)
+        sys.stdout.flush()
     playgame_or_leaderboard()
 
 
