@@ -27,7 +27,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -53,7 +53,6 @@ def welcome_message():
 
 
 def playgame_or_leaderboard():
-
     """
     Function enables the user to input the letter A or B
     Depending on the letter entered eithe the game or show leaderboard
@@ -66,7 +65,8 @@ def playgame_or_leaderboard():
     print("\n")
     a_or_b_valid_response = False
     if a_or_b_valid_response is False:
-        player_response = input(Fore.CYAN + "Enter A or B to continue:\n").upper()
+        player_response = input(
+            Fore.CYAN + "Enter A or B to continue:\n").upper()
         print(Style.RESET_ALL)
         print(LINES)
         print(Style.RESET_ALL)
@@ -125,92 +125,97 @@ def play_hangman():
     attempts = 0
     correct_response = " "
 
-    username_valid_response = False
-    if username_valid_response is False:
+    while True:
         username = input(Fore.CYAN + "Enter your name:\n")
         print(Style.RESET_ALL)
         if len(username) > 0:
-            username_valid_response = True
+            break
         else:
-            username_valid_response = Fals
+            print(Fore.RED + "Invalid username. Please enter a non-empty name.")
 
-    if username_valid_response is True:
-        while len(answer_letters) > 0 and lives > 0:
-            print(LINES)
+    while len(answer_letters) > 0 and lives > 0:
+        print(LINES)
+        print(Style.RESET_ALL)
+
+        print(HANGMAN_STAGES[attempts])
+
+        print(Fore.RED + f'Used Letters: {used_letters}')
+        print(Style.RESET_ALL)
+
+        print(Fore.RED + f'Used Words: {used_words}')
+        print(Style.RESET_ALL)
+
+        hidden_answer_letters = [
+            letter if letter in used_letters else "_" for letter in answer]
+        print("Current Word:", " ".join(hidden_answer_letters))
+        print(LINES)
+        print(Style.RESET_ALL)
+
+        if lives > 5:
+            print(Fore.GREEN +
+                    f'{username} you have {lives} lives remaining')
             print(Style.RESET_ALL)
-
-            print(HANGMAN_STAGES[attempts])
-
-            print(Fore.RED + f'Used Letters: {used_letters}')
+        elif 6 > lives > 3:
+            print(Fore.YELLOW +
+                    f'{username} you have {lives} lives remaining')
             print(Style.RESET_ALL)
-
-            print(Fore.RED + f'Used Words: {used_words}')
+        elif lives < 4:
+            print(
+                Fore.RED + f'{username} you have {lives} lives remaining')
             print(Style.RESET_ALL)
-
-            hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
-            print("Current Word:", " ".join(hidden_answer_letters))
-            print(LINES)
+        print("\n")
+        if correct_response is True:
+            print(Fore.GREEN + "Well done, that is correct!")
             print(Style.RESET_ALL)
+        elif correct_response is False:
+            print(Fore.RED + "Oh no, that is incorrect!")
+            print(Style.RESET_ALL)
+        else:
+            print()
 
-            if lives > 5:
-                print(Fore.GREEN + f'{username} you have {lives} lives remaining')
-                print(Style.RESET_ALL)
-            elif 6 > lives > 3:
-                print(Fore.YELLOW + f'{username} you have {lives} lives remaining')
-                print(Style.RESET_ALL)
-            elif lives < 4:
-                print(Fore.RED + f'{username} you have {lives} lives remaining')
-                print(Style.RESET_ALL)
-            print("\n")
-            if correct_response is True:
-                print(Fore.GREEN + "Well done, that is correct!")
-                print(Style.RESET_ALL)
-            elif correct_response is False:
-                print(Fore.RED + "Oh no, that is incorrect!")
-                print(Style.RESET_ALL)
-            else:
-                print()
-
-            selected_letter = input("Guess a letter:\n").upper()
-            if len(selected_letter) == 1 and selected_letter.isalpha():
-                if selected_letter in used_letters:
-                    print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
-                    correct_response = " "
-                elif selected_letter not in used_letters:
-                    used_letters.append(selected_letter)
-                    if selected_letter in answer_letters:
-                        available_letters.remove(selected_letter)
-                        answer_letters.remove(selected_letter)
-                        correct_response = True
-                    elif selected_letter not in answer_letters:
-                        correct_response = False
-                        lives -= 1
-                        attempts += 1
-            elif len(selected_letter) == len(answer) and selected_letter.isalpha():
-                if selected_letter in used_words:
-                    print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
-                elif selected_letter not in used_words:
-                    used_words.append(selected_letter)
-                    if selected_letter == answer:
-                        correct_response = " "
-                        final_result()
-                    elif selected_letter != answer:
-                        used_words.append(selected_letter)
-                        correct_respons = False
-                        lives -= 1
-                        attempts += 1
-            else:
+        selected_letter = input("Guess a letter:\n").upper()
+        if len(selected_letter) == 1 and selected_letter.isalpha():
+            if selected_letter in used_letters:
+                print(
+                    f"Oops... you have already selected {selected_letter}, try typing a different letter!")
                 correct_response = " "
-                print("Invalid, character. Please try typing a letter!")
-        score = (lives * SCORE_PER_LIFE)
-        if len(answer_letters) == 0:
-            final_result_won(lives, username, score, len(answer_letters), answer)
+            elif selected_letter not in used_letters:
+                used_letters.append(selected_letter)
+                if selected_letter in answer_letters:
+                    available_letters.remove(selected_letter)
+                    answer_letters.remove(selected_letter)
+                    correct_response = True
+                elif selected_letter not in answer_letters:
+                    correct_response = False
+                    lives -= 1
+                    attempts += 1
+        elif len(selected_letter) == len(answer) and selected_letter.isalpha():
+            if selected_letter in used_words:
+                print(
+                    f"Oops... you have already selected {selected_letter}, try typing a different letter!")
+            elif selected_letter not in used_words:
+                used_words.append(selected_letter)
+                if selected_letter == answer:
+                    correct_response = " "
+                    final_result()
+                elif selected_letter != answer:
+                    used_words.append(selected_letter)
+                    correct_respons = False
+                    lives -= 1
+                    attempts += 1
+        else:
             correct_response = " "
-            upate_leaderboard()
-        elif lives == 0:
-            print(HANGMAN_STAGES[attempts])
-            correct_response = " "
-            final_result_lost(username, score, answer)
+            print("Invalid, character. Please try typing a letter!")
+    score = (lives * SCORE_PER_LIFE)
+    if len(answer_letters) == 0:
+        final_result_won(lives, username, score,
+                            len(answer_letters), answer)
+        correct_response = " "
+        upate_leaderboard()
+    elif lives == 0:
+        print(HANGMAN_STAGES[attempts])
+        correct_response = " "
+        final_result_lost(username, score, answer)
 
 
 def final_result_lost(username, score, answer):
@@ -219,7 +224,8 @@ def final_result_lost(username, score, answer):
     """
     print(Fore.RED + LOSS)
     print(Style.RESET_ALL)
-    print(f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
+    print(
+        f'Unfortunatley {username} you have met your faith, better luck next time!\nyou finished with a score of {score} points\n')
     print(f'The word was {answer}\n')
     play_again()
 
@@ -233,14 +239,17 @@ def final_result_won(lives, username, score, word_length, answer):
     print(Style.RESET_ALL)
     if lives == 7:
         final_score = final_score + UNSCATHED_SCORE
-        print(Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n')
+        print(
+            Fore.GREEN + f'Wow.. {username} you survived without a scratch! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
     elif 7 > lives > 3:
         final_score = final_score + HALF_OF_LIVES_REMAINING_BONUS
-        print(Fore.GREEN + f'Congratulations {username} your survived with {lives} lives remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n')
+        print(
+            Fore.GREEN + f'Congratulations {username} your survived with {lives} lives remaining, but you might not the text time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
     elif lives < 4:
-        print(Fore.GREEN + f'That was close {username} you just made it with {lives} lives remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
+        print(
+            Fore.GREEN + f'That was close {username} you just made it with {lives} lives remaining, you got lucky this time! \nyou finished with a score of {final_score} points\n')
         print(Style.RESET_ALL)
 
     upate_leaderboard(username, final_score)
@@ -294,7 +303,8 @@ def show_leaderboard():
     leaderboard_data = leaderboard.get_all_values()
     results = leaderboard_data[1:]
 
-    sorted_results = sorted(leaderboard_data, key=lambda x: int(x[1]), reverse=True)
+    sorted_results = sorted(
+        leaderboard_data, key=lambda x: int(x[1]), reverse=True)
 
     print(Fore.YELLOW + f'{LEADERBOARD}')
     print(Style.RESET_ALL)
