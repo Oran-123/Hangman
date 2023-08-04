@@ -77,9 +77,9 @@ def playgame_or_leaderboard():
         elif player_response == "B":
             show_leaderboard()
             a_or_b_valid_response = True
-        elif player_response != "A" or player_response != "B":
-            print("Invalid character entered, please enter either A or B")
-            a_or_b_valid_response = False
+        else:
+            print(Fore.RED + "Invalid character entered, please enter either A or B")
+            playgame_or_leaderboard()
 
 
 def display_rules(rules):
