@@ -168,6 +168,20 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
 
     return correct_response, lives, attempts
 
+def process_word_guess(selected_word, answer, correct_response, lives, attempts):
+    if len(selected_word) == len(answer) and selected_word.isalpha():
+        if selected_word == answer:
+            correct_response = " "
+            final_result()
+        else:
+            correct_response = False
+            lives -= 1
+            attempts += 1
+    else:
+        print("Invalid word length. Please try typing a valid word!")
+
+    return correct_response, lives, attempts
+
 
 # def play_hangman():
 #     """
