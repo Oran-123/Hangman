@@ -120,15 +120,9 @@ def play_hangman():
 
         selected_letter = get_selected_letter()
 
-        selected_word = get_selected_word() 
-
-        if selected_letter:
-            response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts)
-        elif selected_word:
-            response, lives, attempts = process_word_guess(selected_word, answer, response, lives, attempts,used_word)
+        response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts,used_words)
         
-
-        if all(letter in used_letters for letter in answer_letters):
+        if all(letter in used_letters for letter in answer_letters) or answer in used_words:
             game_active = False
             final_result_won(lives, username, (lives * SCORE_PER_LIFE), len(answer_letters), answer)
             correct_response = " "
@@ -187,7 +181,7 @@ def get_selected_word():
     selected_word = input("Guess the word:\n").upper()
     return selected_word
 
-def process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts):
+def process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts,used_words):
     if len(selected_letter) == 1 and selected_letter.isalpha():
         if selected_letter in used_letters:
             response ="Oops... you have already selected {selected_letter}, try typing a different letter!"
@@ -202,26 +196,36 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
                 response = "Oh no, that is incorrect!"
                 lives -= 1
                 attempts += 1
+    elif len(selected_letter) > 1 and selected_letter.isalpha():
+        if selected_letter == answer:
+            used_words.append(selected_letter)
+            response = "Well done, that is correct!"
+        else:
+            used_words.append(selected_letter)
+            response = "Oh no, that is incorrect!"
+            lives -= 1
+            attempts += 1   
+
     else:
         response ="Invalid character. Please try typing a letter!"
 
     return response, lives, attempts
     
 
-def process_word_guess(selected_word, answer, response, lives, attempts,used_word):
-    if len(selected_word) == len(answer) and selected_word.isalpha():
-        if selected_word == answer:
-            response = "Well done, that is correct!"
-            final_result()
-        else:
-            used_letters.append(selected_word)
-            response = "Oh no, that is incorrect!"
-            lives -= 1
-            attempts += 1
-    else:
-        response ="Invalid character. Please try typing a letter!"
+# def process_word_guess(selected_word, answer, response, lives, attempts,used_word):
+#     if len(selected_word) == len(answer) and selected_word.isalpha():
+#         if selected_word == answer:
+#             response = "Well done, that is correct!"
+#             final_result()
+#         else:
+#             used_word.append(selected_word)
+#             response = "Oh no, that is incorrect!"
+#             lives -= 1
+#             attempts += 1
+#     else:
+#         response ="Invalid character. Please try typing a letter!"
 
-    return response, lives, attempts
+#     return response, lives, attempts
 
 
 # def play_hangman():
