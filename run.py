@@ -99,6 +99,38 @@ def display_rules(rules):
             start_game_valid_response = False
 
 
+
+def play_hangman():
+    answer = 'TEST'
+    answer_letters = list(answer)
+    available_letters = list(string.ascii_uppercase)
+    used_letters = []
+    used_words = []
+    lives = 7
+    attempts = 0
+    correct_response = " "
+    game_active = True
+
+    username = get_username()
+
+    while game_active:
+        display_game_status(username, lives, attempts, answer_letters, used_letters, used_words)
+
+        selected_letter = get_selected_letter()
+
+        correct_response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, correct_response, lives, attempts)
+
+        if len(answer_letters) == 0:
+            game_active = False
+            final_result_won(lives, username, (lives * SCORE_PER_LIFE), len(answer_letters), answer)
+            correct_response = " "
+            update_leaderboard()
+        elif lives == 0:
+            game_active = False
+            print(HANGMAN_STAGES[attempts])
+            correct_response = " "
+            final_result_lost(username, (lives * SCORE_PER_LIFE), answer)
+
 def get_random_word(words):
     """
     picks a random word from the list of words
