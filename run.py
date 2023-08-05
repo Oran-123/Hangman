@@ -147,6 +147,22 @@ def get_selected_word():
     selected_word = input("Guess the word:\n").upper()
     return selected_word
 
+def process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, correct_response, lives, attempts):
+    if len(selected_letter) == 1 and selected_letter.isalpha():
+        if selected_letter in used_letters:
+            print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
+            correct_response = " "
+        elif selected_letter not in used_letters:
+            used_letters.append(selected_letter)
+            if selected_letter in answer_letters:
+                available_letters.remove(selected_letter)
+                answer_letters.remove(selected_letter)
+                correct_response = True
+            else:
+                correct_response = False
+                lives -= 1
+                attempts += 1
+
 
 # def play_hangman():
 #     """
