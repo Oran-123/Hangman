@@ -193,7 +193,7 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
     if len(selected_letter) == 1 and selected_letter.isalpha():
         if selected_letter in used_letters:
             print(f"Oops... you have already selected {selected_letter}, try typing a different letter!")
-            correct_response = " "
+            correct_response = None
         elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
             if selected_letter in answer:
