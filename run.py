@@ -3,6 +3,7 @@ import string
 import sys
 import gspread
 import datetime
+import getpass
 
 from results import *
 from colorama import Fore, Back, Style
@@ -90,9 +91,9 @@ def display_rules(rules):
     print(rules)
     start_game_valid_response = False
     if start_game_valid_response is False:
-        start_game = input(Fore.CYAN + "Press ENTER to start the game:\n")
+        start_game = getpass.getpass(Fore.CYAN + "Press ENTER to start the game:\n")
         print(Style.RESET_ALL)
-        if start_game == "":
+        if start_game != "" or start_game == "":
             play_hangman()
             start_game_valid_response = True
         else:
@@ -393,7 +394,7 @@ def play_again():
             play_again_valid_response is False
 
 
-def upate_leaderboard(username, score):
+def update_leaderboard(username, score):
     """
     Updates the google sheet with the users score
     Called at the end of each game
