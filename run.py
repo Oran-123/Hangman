@@ -120,9 +120,12 @@ def play_hangman():
 
         selected_letter = get_selected_letter()
 
+        selected_word = get_selected_word() 
 
-
-        response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts)
+        if selected_letter:
+            response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts)
+        elif selected_word:
+            response, lives, attempts = process_word_guess(selected_word, answer, response, lives, attempts,used_word)
         
 
         if all(letter in used_letters for letter in answer_letters):
@@ -205,12 +208,13 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
     return response, lives, attempts
     
 
-def process_word_guess(selected_word, answer, response, lives, attempts):
+def process_word_guess(selected_word, answer, response, lives, attempts,used_word):
     if len(selected_word) == len(answer) and selected_word.isalpha():
         if selected_word == answer:
             response = "Well done, that is correct!"
             final_result()
         else:
+            used_letters.append(selected_word)
             response = "Oh no, that is incorrect!"
             lives -= 1
             attempts += 1
