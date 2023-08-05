@@ -4,6 +4,8 @@ import sys
 import gspread
 import datetime
 import getpass
+import sys
+import select
 
 from results import *
 from colorama import Fore, Back, Style
@@ -102,7 +104,7 @@ def display_rules(rules):
 
 
 def play_hangman():
-    answer = 'TEST'
+    answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
@@ -174,36 +176,44 @@ def display_game_status(username, lives, attempts, answer,answer_letters, used_l
     print(response)
 
 def get_selected_letter():
+    print(Style.RESET_ALL)
     selected_letter = input("Guess a letter:\n").upper()
     return selected_letter
 
 def process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts,used_words):
     if len(selected_letter) == 1 and selected_letter.isalpha():
         if selected_letter in used_letters:
-            response ="Oops... you have already selected {selected_letter}, try typing a different letter!"
+            response =Fore.RED  + "Oops... you have already selected {selected_letter}, try typing a different letter!"
+            print(Style.RESET_ALL)
             correct_response = None
         elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
             if selected_letter in answer:
                 available_letters.remove(selected_letter)
                 answer_letters.remove(selected_letter)
-                response = "Well done, that is correct!"
+                response = Fore.GREEN + "Well done, that is correct!"
+                print(Style.RESET_ALL)
             else:
-                response = "Oh no, that is incorrect!"
+                response = Fore.RED  + "Oh no, that is incorrect!"
+                print(Style.RESET_ALL)
                 lives -= 1
                 attempts += 1
     elif len(selected_letter) > 1 and selected_letter.isalpha():
         if selected_letter == answer:
             used_words.append(selected_letter)
-            response = "Well done, that is correct!"
+            response = Fore.GREEN + "Well done, that is correct!"
+            print(Style.RESET_ALL)
         else:
             used_words.append(selected_letter)
-            response = "Oh no, that is incorrect!"
+            response = Fore.GREEN + "Oh no, that is incorrect!"
+            print(Style.RESET_ALL)
             lives -= 1
             attempts += 1   
 
     else:
-        response ="Invalid character. Please try typing a letter!"
+        response =Fore.RED + "Invalid character. Please try typing a letter!"
+        print(Style.RESET_ALL)
+
 
     return response, lives, attempts
 
