@@ -143,6 +143,10 @@ def get_selected_letter():
     selected_letter = input("Guess a letter:\n").upper()
     return selected_letter
 
+def get_selected_word():
+    selected_word = input("Guess the word:\n").upper()
+    return selected_word
+
 
 # def play_hangman():
 #     """
