@@ -162,6 +162,11 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
                 correct_response = False
                 lives -= 1
                 attempts += 1
+     else:
+        correct_response = " "
+        print("Invalid character. Please try typing a letter!")
+
+    return correct_response, lives, attempts
 
 
 # def play_hangman():
