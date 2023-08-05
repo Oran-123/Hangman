@@ -139,6 +139,11 @@ def display_game_status(username, lives, attempts, answer_letters, used_letters,
     print(Style.RESET_ALL)
 
 
+def get_selected_letter():
+    selected_letter = input("Guess a letter:\n").upper()
+    return selected_letter
+
+
 # def play_hangman():
 #     """
 #     Main game function displays random word and enables user
