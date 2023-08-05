@@ -115,7 +115,8 @@ def play_hangman():
     Main game function displays random word and enables user
     to input guesses, also validates the users response
     """
-    answer = get_random_word(random_words)
+    # get_random_word(random_words)
+    answer = 'TEST'
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
     used_letters = []
@@ -124,6 +125,8 @@ def play_hangman():
     lives = 7
     attempts = 0
     correct_response = " "
+    game_active = True
+
 
     while True:
         username = input(Fore.CYAN + "Enter your name:\n")
@@ -133,7 +136,7 @@ def play_hangman():
         else:
             print(Fore.RED + "Invalid username. Please enter a non-empty name.")
 
-    while len(answer_letters) > 0 and lives > 0:
+    while game_active:
         print(LINES)
         print(Style.RESET_ALL)
 
@@ -208,11 +211,13 @@ def play_hangman():
             print("Invalid, character. Please try typing a letter!")
     score = (lives * SCORE_PER_LIFE)
     if len(answer_letters) == 0:
+        game_active = False
         final_result_won(lives, username, score,
                             len(answer_letters), answer)
         correct_response = " "
         upate_leaderboard()
     elif lives == 0:
+        game_active = False
         print(HANGMAN_STAGES[attempts])
         correct_response = " "
         final_result_lost(username, score, answer)
