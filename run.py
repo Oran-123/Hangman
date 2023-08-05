@@ -158,7 +158,7 @@ def display_game_status(username, lives, attempts, answer_letters, used_letters,
     print(Style.RESET_ALL)
     print(Fore.RED + f'Used Words: {used_words}')
     print(Style.RESET_ALL)
-    hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer]
+    hidden_answer_letters = [letter if letter in used_letters else "_" for letter in answer_letters]
     print("Current Word:", " ".join(hidden_answer_letters))
     print(LINES)
     print(Style.RESET_ALL)
@@ -186,7 +186,8 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
             correct_response = " "
         elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
-            if selected_letter in answer_letters:
+            if selected_letter in answer:
+                print(f'Well done {selected_letter} is correct!')
                 available_letters.remove(selected_letter)
                 answer_letters.remove(selected_letter)
                 correct_response = True
@@ -194,7 +195,7 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
                 correct_response = False
                 lives -= 1
                 attempts += 1
-     else:
+    else:
         correct_response = " "
         print("Invalid character. Please try typing a letter!")
 
