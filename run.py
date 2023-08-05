@@ -108,17 +108,18 @@ def play_hangman():
     used_words = []
     lives = 7
     attempts = 0
-    correct_response = " "
+    correct_response = None
     game_active = True
 
     username = get_username()
 
     while game_active:
-        display_game_status(username, lives, attempts, answer_letters, used_letters, used_words)
+        display_game_status(username, lives, attempts, answer_letters, used_letters, used_words, correct_response)
 
         selected_letter = get_selected_letter()
 
         correct_response, lives, attempts = process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, correct_response, lives, attempts)
+        
 
         if len(answer_letters) == 0:
             game_active = False
@@ -150,7 +151,7 @@ def get_username():
         else:
             print(Fore.RED + "Invalid username. Please enter a non-empty name.")
 
-def display_game_status(username, lives, attempts, answer_letters, used_letters, used_words):
+def display_game_status(username, lives, attempts, answer_letters, used_letters, used_words, correct_response):
     print(LINES)
     print(Style.RESET_ALL)
     print(HANGMAN_STAGES[attempts])
@@ -169,6 +170,15 @@ def display_game_status(username, lives, attempts, answer_letters, used_letters,
     elif lives < 4:
         print(Fore.RED + f'{username} you have {lives} lives remaining')
     print(Style.RESET_ALL)
+    if correct_response is True:
+            print(Fore.GREEN + "Well done, that is correct!")
+            print(Style.RESET_ALL)
+    elif correct_response is False:
+        print(Fore.RED + "Oh no, that is incorrect!")
+        print(Style.RESET_ALL)
+    else:
+        print()
+
 
 
 def get_selected_letter():
@@ -187,7 +197,6 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
         elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
             if selected_letter in answer:
-                print(f'Well done {selected_letter} is correct!')
                 available_letters.remove(selected_letter)
                 answer_letters.remove(selected_letter)
                 correct_response = True
@@ -200,6 +209,7 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
         print("Invalid character. Please try typing a letter!")
 
     return correct_response, lives, attempts
+    
 
 def process_word_guess(selected_word, answer, correct_response, lives, attempts):
     if len(selected_word) == len(answer) and selected_word.isalpha():
