@@ -399,6 +399,24 @@ No result happens except for when the users presses the enter button as requeste
 * To hold the completed game data Google Sheets
 * Stackoverflow for general queries
 
+### Deployment
+
+1. Log in/create an account on Heroku .
+2. Click the button New from the dashboard in the top right corner and select Create New App on the drop-down menu .
+3. You must enter a unique app name, (I used orans-hangman).
+4. Then select your region I chose Europe.
+5. After select the Create App button.
+6. After this you will see the the project’s Deploy Tab. Open the Settings Tab and scroll down to Config Vars.
+7. Click Reveal Config Vars and enter port into the Key box and 8000 into the Value box and click the Add button.
+8. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
+9. Repeat step 8 to add node.js. Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
+10. Scroll to the top of the page and now choose the Deploy tab.
+11. Select Github as the deployment method.
+12. Confirm you want to connect to GitHub. 8 Search for the repository name and click the connect button.
+13. Scroll to the bottom of the deploy page and select preferred deployment type:
+14. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
+15. Select the correct branch for deployment from the drop-down menu and click Deploy Branch for manual deployment.
+
 ### Credits
 
 * Code Institute 
