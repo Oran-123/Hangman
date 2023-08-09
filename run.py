@@ -57,9 +57,7 @@ def welcome_message():
 
 def playgame_or_leaderboard():
     """
-    Function enables the user to input the letter A or B
-    Depending on the letter entered eithe the game or show leaderboard
-    functions will be called
+    Allows the user to choose between playing the game or viewing the leaderboard.
     """
 
     print(LINES)
@@ -87,8 +85,7 @@ def playgame_or_leaderboard():
 
 def display_rules(rules):
     """
-    Prints the rules of the game which are imported from
-    rules.py
+    Prints the rules of the game which are imported from rules.py
     """
     print(rules)
     start_game_valid_response = False
@@ -104,6 +101,10 @@ def display_rules(rules):
 
 
 def play_hangman():
+
+    """
+    Starts the Hangman game by initializing game parameters and user input loop.
+    """
     answer = get_random_word(random_words)
     answer_letters = list(answer)
     available_letters = list(string.ascii_uppercase)
@@ -137,8 +138,7 @@ def play_hangman():
 
 def get_random_word(words):
     """
-    picks a random word from the list of words
-    and validates the word
+    picks a random word from the list of words and validates the word
     """
     random_word = random.choice(words)
     while "-" in random_word or " " in random_word:
@@ -146,6 +146,9 @@ def get_random_word(words):
     return random_word.upper()
 
 def get_username():
+    """
+    Asks the user to input their username and validates it.
+    """
     while True:
         username = input(Fore.CYAN + "Enter your name:\n")
         print(Style.RESET_ALL)
@@ -155,6 +158,9 @@ def get_username():
             print(Fore.RED + "Invalid username. Please enter a non-empty name.")
 
 def display_game_status(username, lives, attempts, answer,answer_letters, used_letters, used_words, response):
+    """
+    Displays the current game status, including hangman stage, used letters/words, and the partially guessed word.
+    """
     print(LINES)
     print(Style.RESET_ALL)
     print(HANGMAN_STAGES[attempts])
@@ -176,11 +182,18 @@ def display_game_status(username, lives, attempts, answer,answer_letters, used_l
     print(response)
 
 def get_selected_letter():
+    """
+    Asks the user to input a letter guess and returns the selected letter.
+    """
+
     print(Style.RESET_ALL)
     selected_letter = input("Guess a letter:\n").upper()
     return selected_letter
 
 def process_letter_guess(selected_letter, answer, answer_letters, used_letters, available_letters, response, lives, attempts,used_words):
+    """
+    Processes the selected letter guess and updates game variables accordingly.
+    """
     if len(selected_letter) == 1 and selected_letter.isalpha():
         if selected_letter in used_letters:
             response =Fore.RED  + "Oops... you have already selected {selected_letter}, try typing a different letter!"
@@ -219,7 +232,7 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
 
 def final_result_lost(username, score, answer):
     """
-    Prints personalised message in response to the users score
+    Prints the losing message and user's final score.
     """
     print(Fore.RED + LOSS)
     print(Style.RESET_ALL)
@@ -231,7 +244,7 @@ def final_result_lost(username, score, answer):
 
 def final_result_won(lives, username, score, word_length, answer):
     """
-    Prints ASCII art to highlight if the user won or lost the game
+    Prints the winning message, user's final score, and additional score bonuses.
     """
     final_score = score + FULL_WORD_SCORE
     print(Fore.GREEN + VICTORY)
