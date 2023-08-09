@@ -336,18 +336,36 @@ This leads to poor user experience.
 
 ### Application terminates when a user enters an invalid or empty response to the when asked to select A or B to proceed 
 
+If the user enters any value other then A or B they will be presented with an error message and askebug_invalid_responsee response until a valid response is entered 
+
+![Invalid response bug](/documents/images/bug_lost_message.png)
 
 ### Application terminates when a user enters an empty response when prompted to enter their name
 
+If the user enters a blank response when promoted to enter a username they will now be presented with an error message and asked to retype there response until a valid response is entered 
+
+![Invalid username response bug](/documents/images/bug_user_name_invalid_response.png)
 
 ### If a user guesses all the correct letters there is no indication that they've won and the game does not end 
 
+When the user wins the game the win game result method is correctly called and the winning message, score and final word is dispalyed 
+
+![Invalid username response bug](/documents/images/bug_winning_result.png)
 
 ### Guessing the correct word will result in the application terminating 
+
+When the user guesses a word it is correctly added to the guessed words list and if it is correct the winning result will be displayed 
+
+Winning Message:
+![Invalid username response bug](/documents/images/bug_winning_result.png)
+
+Guessed Word List:
+![Invalid username response bug](/documents/images/bug_guess_word.png)
 
 
 ### If the user presses a button before pressing enter to start the game the system crashs 
 
+No result happens except for when the users presses the enter button as requested 
  
 ## Technologies used
 
