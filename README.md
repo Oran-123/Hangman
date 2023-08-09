@@ -338,7 +338,7 @@ This leads to poor user experience.
 
 If the user enters any value other then A or B they will be presented with an error message and askebug_invalid_responsee response until a valid response is entered 
 
-![Invalid response bug](/documents/images/bug_lost_message.png)
+![Invalid response bug](/documents/images/bug_invalid_response.png)
 
 ### Application terminates when a user enters an empty response when prompted to enter their name
 
