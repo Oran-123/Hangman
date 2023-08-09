@@ -333,6 +333,21 @@ When you completed the game with a win or loose message the final word is not pr
 This leads to poor user experience.
 
 ![end game result bug](/documents/images/bug_lost_message.png)
+
+### Application terminates when a user enters an invalid or empty response to the when asked to select A or B to proceed 
+
+
+### Application terminates when a user enters an empty response when prompted to enter their name
+
+
+### If a user guesses all the correct letters there is no indication that they've won and the game does not end 
+
+
+### Guessing the correct word will result in the application terminating 
+
+
+### If the user presses a button before pressing enter to start the game the system crashs 
+
  
 ## Technologies used
 
