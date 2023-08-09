@@ -112,7 +112,6 @@ def play_hangman():
     used_words = []
     lives = 7
     attempts = 0
-    correct_response = None
     game_active = True
     response = ""
 
@@ -128,12 +127,10 @@ def play_hangman():
         if all(letter in used_letters for letter in answer_letters) or answer in used_words:
             game_active = False
             final_result_won(lives, username, (lives * SCORE_PER_LIFE), len(answer_letters), answer)
-            correct_response = " "
             update_leaderboard()
         elif lives == 0:
             game_active = False
             print(HANGMAN_STAGES[attempts])
-            correct_response = " "
             final_result_lost(username, (lives * SCORE_PER_LIFE), answer)
 
 def get_random_word(words):
@@ -198,7 +195,6 @@ def process_letter_guess(selected_letter, answer, answer_letters, used_letters, 
         if selected_letter in used_letters:
             response =Fore.RED  + "Oops... you have already selected {selected_letter}, try typing a different letter!"
             print(Style.RESET_ALL)
-            correct_response = None
         elif selected_letter not in used_letters:
             used_letters.append(selected_letter)
             if selected_letter in answer:
